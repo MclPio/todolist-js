@@ -1,5 +1,4 @@
 import {Todo} from './todo.js';
-import {commands} from './commands.js';
 import {Project} from './project.js';
 
 function test() {
@@ -16,11 +15,13 @@ function test() {
   home.addTodo(todo2);
   home.addTodo(todo3);
 
-  console.log(home.getTodos());
+  todo1.title = 'do not mow';
+  todo1.description = 'description';
+  todo1.dueDate = '2050-01-01';
+  todo1.priority = 2;
+  todo1.complete = true;
 
-  home.removeTodo(todo2);
-
-  console.log(home.getTodos());
+  console.log(home.getTodos()[0])
 };
 
 export { test };
