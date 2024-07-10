@@ -6,10 +6,20 @@ function updateDOM(){
   projectsSection.innerHTML = '';
 
   for (let i = 0; i < projectsArray.length; i++){
+    const projectContainer = document.createElement('div');
+    projectContainer.classList = 'project-container'
+
     const projectButton = document.createElement('button');
-    projectButton.classList = 'project';
+    projectButton.classList = 'project-button';
     projectButton.innerHTML = projectsArray[i].name;
-    projectsSection.append(projectButton);
+
+    const projectOptionsButton = document.createElement('button');
+    projectOptionsButton.classList = 'project-options-button';
+    projectOptionsButton.innerHTML = `<span class="material-symbols-outlined">more_horiz</span>`;
+
+
+    projectContainer.append(projectButton, projectOptionsButton);
+    projectsSection.append(projectContainer);
   }
 }
 

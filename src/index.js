@@ -5,6 +5,7 @@ import { newProject } from "./views/new-project.js";
 import { storage } from './modules/storage.js';
 import { updateDOM } from './views/projectsToDOM.js';
 import './css/style.css';
+import 'material-symbols';
 
 const content = document.getElementById('content');
 const projectsSection = document.createElement('section');

@@ -9,6 +9,7 @@
 1. Add a setting modal for project button which gives options to edit name, delete.
 1. Implement a counter that counts todos in project which should show in navbar.
 1. Move the new project button and insert into my projects header in navbar...
+1. add id to projects/storage of projects
 
 ### todos:
 1. Implement the create, edit, delete, maybe show methods

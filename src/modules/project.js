@@ -3,7 +3,8 @@ class Project {
    * Create a new Project.
    * @param {string} name - The name of the project.
    */
-  constructor(name) {
+  constructor(name, id) {
+    this.id = id
     this.name = name;
     this.todos = [];
   }

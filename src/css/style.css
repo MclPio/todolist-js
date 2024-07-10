@@ -8,7 +8,7 @@
   overflow: auto;
 }
 
-.project {
+.project-button {
   border: none;
   background-color: transparent;
   text-align: left;
@@ -17,10 +17,43 @@
   white-space: nowrap; 
 }
 
-.project:hover {
+.project-button:hover {
+  text-decoration: underline;
+}
+
+.project-button:active {
+  font-weight: bold;
+}
+
+.project-container:hover {
   background-color: antiquewhite;
 }
 
-.project.project:active {
+.project-container:active {
   background-color: rgb(255, 194, 113);
 }
+
+.project-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-options-button {
+  right: 10px;
+  display: none;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.project-options-button:hover {
+  background-color: rgb(243, 236, 250);
+}
+.project-container:hover .project-options-button {
+  display: inline-block;
+}
+
+.material-symbols-outlined {
+  font-size: inherit !important;
+}
+
