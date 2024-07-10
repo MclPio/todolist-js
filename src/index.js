@@ -3,28 +3,19 @@ import {Project} from './modules/project.js';
 import {test} from './modules/test.js';
 import { newProject } from "./views/new-project.js";
 import { storage } from './modules/storage.js';
-
-// retrieve projects from storage...
-storage();
+import { updateDOM } from './views/projectsToDOM.js';
 
 const content = document.getElementById('content');
+const projectsSection = document.createElement('section');
+projectsSection.id = 'projects';
+content.append(projectsSection);
 
-const projects = document.createElement('section');
-projects.id = 'projects';
+// retrieves projects from localStorage and inserts into projectsSection
+updateDOM();
 
-const homeProject = new Project('home');
-const otherProject = new Project('other');
-const homeButton = document.createElement('button');
-homeButton.textContent = homeProject.name;
-
-projects.append(homeButton);
-
+// new project button plus its event listener
 const addProjectButton = document.createElement('button');
 addProjectButton.id = 'new-project';
 addProjectButton.textContent = 'New Project';
-projects.append(addProjectButton);
-
-content.append(projects);
+content.append(addProjectButton);
 newProject();
-
-console.log(storage().tempProjects);

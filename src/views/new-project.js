@@ -1,4 +1,6 @@
 import { Project } from "../modules/project";
+import { storage } from '../modules/storage';
+import { updateDOM } from "./projectsToDOM";
 
 function newProject() {
   const newProjectButton = document.getElementById('new-project');
@@ -33,10 +35,11 @@ function newProject() {
       submitButton.textContent = 'submit';
       submitButton.addEventListener('click', () => {
         if (input.value) {
-          const project = new Project(input.value);
-          //append to projects storage?
+          const newProject = new Project(input.value);
+          storage().save(newProject);
+          updateDOM();
         } else {
-          alert('ayooo can not be empty')
+          alert('Project name cannot be empty')
         }
       })
       dialog.append(label, input, submitButton, cancelButton);
@@ -46,7 +49,6 @@ function newProject() {
       dialog.showModal();  
     }
   })
-
 }
 
 export { newProject };
