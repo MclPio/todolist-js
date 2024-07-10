@@ -4,6 +4,7 @@ import {test} from './modules/test.js';
 import { newProject } from "./views/new-project.js";
 import { storage } from './modules/storage.js';
 import { updateDOM } from './views/projectsToDOM.js';
+import './css/style.css';
 
 const content = document.getElementById('content');
 const projectsSection = document.createElement('section');
