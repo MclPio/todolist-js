@@ -19,6 +19,10 @@ class Project {
   getTodos() {
     return this.todos
   }
+
+  todoCount() {
+    return this.todos.length
+  }
 }
 
 export { Project };

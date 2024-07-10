@@ -1,0 +1,26 @@
+#projects {
+  display: flex;
+  flex-direction: column;
+}
+
+#projects-section {
+  width: min(25%, 300px);
+  overflow: auto;
+}
+
+.project {
+  border: none;
+  background-color: transparent;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; 
+}
+
+.project:hover {
+  background-color: antiquewhite;
+}
+
+.project.project:active {
+  background-color: rgb(255, 194, 113);
+}

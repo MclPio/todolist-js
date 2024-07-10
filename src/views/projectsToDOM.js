@@ -7,8 +7,8 @@ function updateDOM(){
 
   for (let i = 0; i < projectsArray.length; i++){
     const projectButton = document.createElement('button');
-    projectButton.class = 'project';
-    projectButton.innerText = projectsArray[i].name;
+    projectButton.classList = 'project';
+    projectButton.innerHTML = projectsArray[i].name;
     projectsSection.append(projectButton);
   }
 }

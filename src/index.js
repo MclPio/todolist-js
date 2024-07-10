@@ -8,7 +8,11 @@ import './css/style.css';
 
 const content = document.getElementById('content');
 const projectsSection = document.createElement('section');
-projectsSection.id = 'projects';
+projectsSection.id = 'projects-section';
+
+const projectList = document.createElement('div');
+projectList.id = 'projects';
+projectsSection.append(projectList);
 content.append(projectsSection);
 
 // retrieves projects from localStorage and inserts into projectsSection
@@ -18,5 +22,5 @@ updateDOM();
 const addProjectButton = document.createElement('button');
 addProjectButton.id = 'new-project';
 addProjectButton.textContent = 'New Project';
-content.append(addProjectButton);
+projectsSection.append(addProjectButton);
 newProject();
