@@ -11,6 +11,19 @@ const content = document.getElementById('content');
 const projectsSection = document.createElement('section');
 projectsSection.id = 'projects-section';
 
+// projects header section...
+const projectHeaderContainer = document.createElement('div');
+projectHeaderContainer.classList = 'project-header-container';
+
+const addProjectButton = document.createElement('button');
+addProjectButton.id = 'new-project';
+addProjectButton.textContent = 'New Project';
+
+const myProjectsHeader = document.createElement('p');
+myProjectsHeader.innerText = 'My Projects';
+
+projectHeaderContainer.append(myProjectsHeader, addProjectButton);
+projectsSection.append(projectHeaderContainer);
 const projectList = document.createElement('div');
 projectList.id = 'projects';
 projectsSection.append(projectList);
@@ -20,8 +33,4 @@ content.append(projectsSection);
 updateDOM();
 
 // new project button plus its event listener
-const addProjectButton = document.createElement('button');
-addProjectButton.id = 'new-project';
-addProjectButton.textContent = 'New Project';
-projectsSection.append(addProjectButton);
 newProject();

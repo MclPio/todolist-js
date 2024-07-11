@@ -57,3 +57,6 @@
   font-size: inherit !important;
 }
 
+.project-header-container {
+  display: flex;
+}
