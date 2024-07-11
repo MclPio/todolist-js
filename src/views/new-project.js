@@ -35,7 +35,7 @@ function newProject() {
       submitButton.textContent = 'submit';
       submitButton.addEventListener('click', () => {
         if (input.value) {
-          const newProject = new Project(input.value);
+          const newProject = new Project(input.value, storage().newProjectID());
           storage().save(newProject);
           updateDOM();
         } else {

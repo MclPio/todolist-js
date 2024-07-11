@@ -5,7 +5,7 @@ function storage() {
     const tempProjects = JSON.parse(localStorage.getItem("projects") || "[]");
     let projects = [];
     for (let i = 0; i < tempProjects.length; i++) {
-      projects.push(new Project(tempProjects[i].name, tempProjects[i].todos));
+      projects.push(new Project(tempProjects[i].name, tempProjects[i].id, tempProjects[i].todos));
     }
     return projects;
   }
@@ -16,6 +16,16 @@ function storage() {
     localStorage.setItem('projects', JSON.stringify(projects));
   }
 
+  // returns id for storage to use for new objects...
+  const newProjectID = () => {
+    let projectLength = retrieve().length;
+    if (projectLength < 0) {
+      return 0;
+    } else {
+      return projectLength;
+    }
+  }
+
   // untested delete function
   function destroy(project) {
     let projects = retrieve()
@@ -23,7 +33,7 @@ function storage() {
     localStorage.setItem('projects', JSON.stringify(projects));
   }
 
-  return { save, retrieve };
+  return { save, retrieve, newProjectID };
 }
 
 export { storage }

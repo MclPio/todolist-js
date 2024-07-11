@@ -11,6 +11,7 @@ function updateDOM(){
 
     const projectButton = document.createElement('button');
     projectButton.classList = 'project-button';
+    projectButton.id = `project-${projectsArray[i].id}`;
     projectButton.innerHTML = projectsArray[i].name;
 
     const projectOptionsButton = document.createElement('button');
