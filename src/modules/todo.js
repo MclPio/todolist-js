@@ -15,6 +15,10 @@ class Todo {
     this.priority = priority;
     this.complete = false;
   }
+
+  sayHi(){
+    return "Hello World"
+  }
 }
 
 export { Todo };

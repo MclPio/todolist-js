@@ -6,10 +6,14 @@ import { storage } from './modules/storage.js';
 import { updateDOM } from './views/projectsToDOM.js';
 import './css/style.css';
 import 'material-symbols';
+import { projectButtonListener, show } from './views/project/show.js';
 
 const content = document.getElementById('content');
 const projectsSection = document.createElement('section');
 projectsSection.id = 'projects-section';
+
+const todoSection = document.createElement('section');
+todoSection.id = 'todo-section';
 
 const container = document.createElement('div');
 container.id = 'container';
@@ -31,7 +35,7 @@ const projectList = document.createElement('div');
 projectList.id = 'projects';
 projectsSection.append(projectList);
 
-container.append(projectsSection);
+container.append(projectsSection, todoSection);
 content.append(container);
 
 // retrieves projects from localStorage and inserts into projectsSection
@@ -40,3 +44,4 @@ updateDOM();
 // new project button plus its event listener
 newProject();
 
+projectButtonListener();
