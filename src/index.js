@@ -11,6 +11,9 @@ const content = document.getElementById('content');
 const projectsSection = document.createElement('section');
 projectsSection.id = 'projects-section';
 
+const container = document.createElement('div');
+container.id = 'container';
+
 // projects header section...
 const projectHeaderContainer = document.createElement('div');
 projectHeaderContainer.classList = 'project-header-container';
@@ -27,7 +30,9 @@ projectsSection.append(projectHeaderContainer);
 const projectList = document.createElement('div');
 projectList.id = 'projects';
 projectsSection.append(projectList);
-content.append(projectsSection);
+
+container.append(projectsSection);
+content.append(container);
 
 // retrieves projects from localStorage and inserts into projectsSection
 updateDOM();

@@ -1,10 +1,14 @@
+#container {
+  display: grid;
+  grid-template-columns: 300px 1fr
+}
+
 #projects {
   display: flex;
   flex-direction: column;
 }
 
 #projects-section {
-  width: min(25%, 300px);
   overflow: auto;
 }
 
@@ -19,6 +23,7 @@
 
 .project-button:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .project-button:active {
@@ -59,4 +64,6 @@
 
 .project-header-container {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
