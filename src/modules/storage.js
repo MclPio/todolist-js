@@ -15,6 +15,13 @@ function storage() {
     projects.push(newProject);
     localStorage.setItem('projects', JSON.stringify(projects));
   }
+// Filter so duplicate projects are not made...
+  function update(project) {
+    let projects = retrieve();
+    projects.filter(p => p !== project);
+    projects.push(project);
+    localStorage.setItem('projects', JSON.stringify(projects));
+  }
 
   // returns id for storage to use for new objects...
   const newProjectID = () => {
@@ -33,7 +40,7 @@ function storage() {
     localStorage.setItem('projects', JSON.stringify(projects));
   }
 
-  return { save, retrieve, newProjectID };
+  return { save, retrieve, newProjectID, update };
 }
 
 export { storage }

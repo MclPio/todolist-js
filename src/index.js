@@ -39,3 +39,4 @@ updateDOM();
 
 // new project button plus its event listener
 newProject();
+

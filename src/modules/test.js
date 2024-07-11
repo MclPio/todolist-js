@@ -1,27 +1,19 @@
 import {Todo} from './todo.js';
 import {Project} from './project.js';
+import { storage } from './storage.js';
+import { updateDOM } from '../views/projectsToDOM.js';
 
 function test() {
-  // make new project
-  // insert a couple of todos into the project....
-
-  const home = new Project('Home');
-
-  const todo1 = new Todo('Mow Lawn');
-  const todo2 = new Todo('Clean gutters');
-  const todo3 = new Todo('Paint garage');
-
-  home.addTodo(todo1);
-  home.addTodo(todo2);
-  home.addTodo(todo3);
-
-  todo1.title = 'do not mow';
-  todo1.description = 'description';
-  todo1.dueDate = '2050-01-01';
-  todo1.priority = 2;
-  todo1.complete = true;
-
-  console.log(home.getTodos()[0])
+  let projectID = storage().newProjectID;
+  let testProject = storage().retrieve()[1];
+  let todo1 = new Todo('mow lawn');
+  let todo2 = new Todo('clean pool');
+  let todo3 = new Todo('swim');
+  testProject.addTodo(todo1);
+  testProject.addTodo(todo2);
+  testProject.addTodo(todo3);
+  storage().update(testProject);
+  updateDOM();
 };
 
 export { test };

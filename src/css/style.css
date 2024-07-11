@@ -1,6 +1,18 @@
+/* 
+option button uses tailwind Indigo colors
+project-button uses tailwind Purple colors
+*/
+
+body,html {
+  margin: 0;
+  padding: 0;
+}
+
 #container {
   display: grid;
-  grid-template-columns: 300px 1fr
+  grid-template-columns: 300px 1fr;
+  background-color: #f5f3ff;
+  height: 100vh;
 }
 
 #projects {
@@ -10,6 +22,7 @@
 
 #projects-section {
   overflow: auto;
+  background-color: #ede9fe;
 }
 
 .project-button {
@@ -31,11 +44,7 @@
 }
 
 .project-container:hover {
-  background-color: antiquewhite;
-}
-
-.project-container:active {
-  background-color: rgb(255, 194, 113);
+  background-color: #ddd6fe;
 }
 
 .project-container {
@@ -52,8 +61,13 @@
 }
 
 .project-options-button:hover {
-  background-color: rgb(243, 236, 250);
+  background-color: #c7d2fe;
 }
+
+.project-options-button:active {
+  background-color: #a5b4fc;
+}
+
 .project-container:hover .project-options-button {
   display: inline-block;
 }
@@ -65,5 +79,5 @@
 .project-header-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
