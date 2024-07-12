@@ -1,3 +1,5 @@
+import Storage from './storage.js'
+
 class Project {
   /**
    * Create a new Project.
@@ -6,17 +8,15 @@ class Project {
    * @param {array} todos - todo array
    */
 
-  // I need constructor to set ids that are not taken by old projects...
   constructor(name, id, todos=[]) {
     this.id = id
     this.name = name;
     this.todos = todos;
   }
 
-  setId() {
-    // id should only be made automatically with project class...
-    // if projects retrieved should be the only time they are set in storage class...
+  #setID() {
     
+
   }
 
   addTodo(item) {

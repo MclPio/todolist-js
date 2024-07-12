@@ -1,7 +1,7 @@
 import { Project } from "./project";
 
-function storage() {
-  function retrieve() {
+class Storage {
+  static retrieve() {
     const tempProjects = JSON.parse(localStorage.getItem("projects") || "[]");
     let projects = [];
     for (let i = 0; i < tempProjects.length; i++) {
@@ -10,13 +10,13 @@ function storage() {
     return projects;
   }
 
-  function save(newProject) {
+  static save(newProject) {
     let projects = retrieve()
     projects.push(newProject);
     localStorage.setItem('projects', JSON.stringify(projects));
   }
 // Filter so duplicate projects are not made...
-  function update(project) {
+  static update(project) {
     let projects = retrieve();
     projects.filter(p => p !== project);
     projects.push(project);
@@ -24,7 +24,7 @@ function storage() {
   }
 
   // returns id for storage to use for new objects...
-  const newProjectID = () => {
+  static newProjectID() {
     let projectLength = retrieve().length;
     if (projectLength < 0) {
       return 0;
@@ -34,13 +34,21 @@ function storage() {
   }
 
   // untested delete function
-  function destroy(project) {
+  static destroy(project) {
     let projects = retrieve()
     projects = projects.filter(p => p !== item)
     localStorage.setItem('projects', JSON.stringify(projects));
   }
 
-  return { save, retrieve, newProjectID, update };
+  static projectIDList() {
+    if (localStorage.getItem('projectIDList')){
+      // get new id as long as it is not in the array...
+    } else {
+      // probably will have to add first key here somehow
+      localStorage.setItem('projectIDList', [])
+    }
+    
+  }
 }
 
-export { storage }
+export default Storage;
