@@ -1,6 +1,5 @@
 import {Todo} from './modules/todo.js';
 import {Project} from './modules/project.js';
-import {test} from './modules/test.js';
 import { newProject } from "./views/new-project.js";
 import { storage } from './modules/storage.js';
 import { updateDOM } from './views/projectsToDOM.js';

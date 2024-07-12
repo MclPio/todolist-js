@@ -1,5 +1,5 @@
 import { Todo } from "../../modules/todo";
-import { storage } from "../../modules/storage";
+import { Storage } from "../../modules/storage";
 
 // displays the todolist on the dom...
 // index through all the todos and display to dom

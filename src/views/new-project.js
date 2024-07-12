@@ -1,5 +1,5 @@
 import { Project } from "../modules/project";
-import { storage } from '../modules/storage';
+import { Storage } from '../modules/storage';
 import { updateDOM } from "./projectsToDOM";
 
 function newProject() {
@@ -35,8 +35,8 @@ function newProject() {
       submitButton.textContent = 'submit';
       submitButton.addEventListener('click', () => {
         if (input.value) {
-          const newProject = new Project(input.value, storage().newProjectID());
-          storage().save(newProject);
+          const newProject = new Project(input.value);
+          Storage.save(newProject);
           updateDOM();
         } else {
           alert('Project name cannot be empty')

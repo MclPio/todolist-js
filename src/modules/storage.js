@@ -2,18 +2,17 @@ import { Project } from "./project";
 
 class Storage {
   static retrieve() {
-    const tempProjects = JSON.parse(localStorage.getItem("projects") || "[]");
+    let items = { ...localStorage };
+    
     let projects = [];
     for (let i = 0; i < tempProjects.length; i++) {
-      projects.push(new Project(tempProjects[i].name, tempProjects[i].id, tempProjects[i].todos));
+      projects.push(new Project(tempProjects[i].id, tempProjects[i].name, tempProjects[i].todos));
     }
     return projects;
   }
 
   static save(newProject) {
-    let projects = retrieve()
-    projects.push(newProject);
-    localStorage.setItem('projects', JSON.stringify(projects));
+    localStorage.setItem(newProject.id, JSON.stringify(newProject));
   }
 // Filter so duplicate projects are not made...
   static update(project) {
@@ -23,16 +22,6 @@ class Storage {
     localStorage.setItem('projects', JSON.stringify(projects));
   }
 
-  // returns id for storage to use for new objects...
-  static newProjectID() {
-    let projectLength = retrieve().length;
-    if (projectLength < 0) {
-      return 0;
-    } else {
-      return projectLength;
-    }
-  }
-
   // untested delete function
   static destroy(project) {
     let projects = retrieve()
@@ -40,17 +29,25 @@ class Storage {
     localStorage.setItem('projects', JSON.stringify(projects));
   }
 
+  /**
+   * Returns array from projectIDList key or creates it if null.
+   * @returns {array} Integers for project IDs.
+   */
   static projectIDList() {
     let storedIDArray = JSON.parse(localStorage.getItem('projectIDList'));
-
-    if (storedIDArray.length < 1){
-      
+    if (storedIDArray){
+      return storedIDArray;
     } else {
-      // probably will have to add first key here somehow
-      localStorage.setItem('projectIDList', '[]')
+      localStorage.setItem('projectIDList', JSON.stringify([]));
+      storedIDArray = JSON.parse(localStorage.getItem('projectIDList'));
+      return storedIDArray;
     }
-    
+  }
+
+  //takes new ID inserts to projectIDList
+  static updateProjectIDList(projectIDArray) {
+    localStorage.setItem('projectIDList', JSON.stringify(projectIDArray));
   }
 }
 
-export default Storage;
+export { Storage };

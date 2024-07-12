@@ -1,24 +1,16 @@
-import Storage from './storage.js'
+import { Storage } from "./storage";
 
 class Project {
   /**
    * Create a new Project.
    * @param {string} name - The name of the project.
-   * @param {integer} id - unique id of project.
    * @param {array} todos - todo array
+   * @param {integer} id - unique id of project.
    */
-
-  constructor(name, id, todos=[]) {
-    this.id = id
+  constructor(name, todos=[], id=this.#setID()) {
+    this.id = id;
     this.name = name;
     this.todos = todos;
-  }
-
-  #setID() {
-    // look through project ID list and set id in constructor
-    // if list exists
-    // if list does not exist
-
   }
 
   addTodo(item) {
@@ -35,6 +27,25 @@ class Project {
 
   todoCount() {
     return this.todos.length
+  }
+
+  /**
+   * Generate a unique ID for a new project and updates localStorage.
+   * @private
+   * @returns {number} A unique project ID.
+   */
+  #setID() {
+    let idArray = Storage.projectIDList();
+    let lastID = idArray[idArray.length - 1];
+
+    if (lastID == null) {
+      Storage.updateProjectIDList([0]);
+      return 0;
+    } else {
+      idArray.push(lastID+1);
+      Storage.updateProjectIDList(idArray);  
+      return lastID + 1;
+    }
   }
 }
 
