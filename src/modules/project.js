@@ -15,7 +15,9 @@ class Project {
   }
 
   #setID() {
-    
+    // look through project ID list and set id in constructor
+    // if list exists
+    // if list does not exist
 
   }
 

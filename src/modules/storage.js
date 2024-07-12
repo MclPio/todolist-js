@@ -41,11 +41,13 @@ class Storage {
   }
 
   static projectIDList() {
-    if (localStorage.getItem('projectIDList')){
-      // get new id as long as it is not in the array...
+    let storedIDArray = JSON.parse(localStorage.getItem('projectIDList'));
+
+    if (storedIDArray.length < 1){
+      
     } else {
       // probably will have to add first key here somehow
-      localStorage.setItem('projectIDList', [])
+      localStorage.setItem('projectIDList', '[]')
     }
     
   }
