@@ -2,11 +2,18 @@ import { Project } from "./project";
 
 class Storage {
   static retrieve() {
-    let items = { ...localStorage };
-    
+    let obj = { ...localStorage };
     let projects = [];
-    for (let i = 0; i < tempProjects.length; i++) {
-      projects.push(new Project(tempProjects[i].id, tempProjects[i].name, tempProjects[i].todos));
+
+    for (let key in obj) {
+      if (key == 'projectIDList') {
+        continue;
+      }
+
+      // console.log(JSON.parse(obj[key]));
+      let parsedObj = JSON.parse(obj[key]);
+      let project = new Project(parsedObj.name, parsedObj.todos, parsedObj.id);
+      projects.push(project);
     }
     return projects;
   }
@@ -14,7 +21,8 @@ class Storage {
   static save(newProject) {
     localStorage.setItem(newProject.id, JSON.stringify(newProject));
   }
-// Filter so duplicate projects are not made...
+
+  // Filter so duplicate projects are not made...
   static update(project) {
     let projects = retrieve();
     projects.filter(p => p !== project);

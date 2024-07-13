@@ -1,7 +1,7 @@
 import { Storage } from "../modules/storage";
 
 function updateDOM(){
-  let projectsArray = Storage.retrieve;
+  let projectsArray = Storage.retrieve();
   const projectsSection = document.getElementById('projects');
   projectsSection.innerHTML = '';
 
