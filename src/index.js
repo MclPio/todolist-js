@@ -1,20 +1,20 @@
-import {Todo} from './modules/todo.js';
-import {Project} from './modules/project.js';
 import { newProject } from "./views/project/new.js";
-import { storage } from './modules/storage.js';
 import { updateDOM } from './views/project/index.js';
 import './css/style.css';
 import 'material-symbols';
-import { projectButtonListener, show } from './views/project/show.js';
+import { projectButtonListener } from './views/project/show.js';
 import { newTodo } from './views/todo/new.js';
+// import { skeleton } from "./helpers/skeleton.js";
+
 const content = document.getElementById('content');
 const projectsSection = document.createElement('section');
 projectsSection.id = 'projects-section';
 
 const todoSection = document.createElement('section');
+todoSection.id = 'todo-section';
+
 const todoList = document.createElement('div');
 todoList.id = 'todo-list';
-todoSection.id = 'todo-section';
 
 todoSection.append(todoList);
 
