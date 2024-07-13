@@ -14,19 +14,21 @@ import { Storage } from "../../modules/storage";
 //all the above should be centered with flex..
 
 function projectToDOM(project){
-  const todoSection = document.getElementById('todo-section');
-  todoSection.innerHTML = '';
+  const todoList = document.getElementById('todo-list');
+  todoList.innerHTML = '';
   const todoUl = document.createElement('ul');
   let todoArray = project.todos
+  console.log(todoArray, project);
   for(let i = 0; i < todoArray.length; i++) {
     let item = todoArray[i];
     let todoObj = new Todo(item.title, item.description, item.dueDate, item.dueTime, item.priority);
+    console.log(todoObj);
     // write code to insert todo obj to dom maybe call todo/show?
     const todoLi = document.createElement('li');
     todoLi.innerText = todoObj.title
     todoUl.append(todoLi);
   }
-  todoSection.append(todoUl);
+  todoList.append(todoUl);
 }
 
 function projectButtonListener(){
@@ -35,16 +37,10 @@ function projectButtonListener(){
   for(let i = 0; i < elements.length; i++){
     elements[i].addEventListener('click', ()=>{
       let projectID = (elements[i].dataset.id);
-      // on click clear todo section
-      // insert projects todos
-      // show(storage().retrieve()[5]);
-      console.log(storage().retrieve()[projectID]);
-      projectToDOM(storage().retrieve()[projectID])    
+      projectToDOM(Storage.getProject(projectID))    
     })
   }
 }
 
 
 export { projectButtonListener };
-
-// need to add todos to test if show works.

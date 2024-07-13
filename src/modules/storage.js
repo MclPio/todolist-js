@@ -10,7 +10,6 @@ class Storage {
         continue;
       }
 
-      // console.log(JSON.parse(obj[key]));
       let parsedObj = JSON.parse(obj[key]);
       let project = new Project(parsedObj.name, parsedObj.todos, parsedObj.id);
       projects.push(project);
@@ -55,6 +54,14 @@ class Storage {
   //takes new ID inserts to projectIDList
   static updateProjectIDList(projectIDArray) {
     localStorage.setItem('projectIDList', JSON.stringify(projectIDArray));
+  }
+
+  // returns project obj
+  static getProject(id) {
+    let obj = JSON.parse(localStorage.getItem(id));
+    let project = new Project(obj.name, obj.todos, obj.id);
+    // console.log(project);
+    return project;
   }
 }
 

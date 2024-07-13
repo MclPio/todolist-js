@@ -1,7 +1,10 @@
-import { Project } from "../modules/project";
-import { Storage } from '../modules/storage';
-import { updateDOM } from "./projectsToDOM";
+import { Project } from "../../modules/project";
+import { Storage } from '../../modules/storage';
+import { updateDOM } from "./index";
 
+/**
+ * Updates the DOM with project data retrieved from storage.
+ */
 function newProject() {
   const newProjectButton = document.getElementById('new-project');
 

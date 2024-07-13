@@ -1,18 +1,22 @@
 import {Todo} from './modules/todo.js';
 import {Project} from './modules/project.js';
-import { newProject } from "./views/new-project.js";
+import { newProject } from "./views/project/new.js";
 import { storage } from './modules/storage.js';
-import { updateDOM } from './views/projectsToDOM.js';
+import { updateDOM } from './views/project/index.js';
 import './css/style.css';
 import 'material-symbols';
 import { projectButtonListener, show } from './views/project/show.js';
-
+import { newTodo } from './views/todo/new.js';
 const content = document.getElementById('content');
 const projectsSection = document.createElement('section');
 projectsSection.id = 'projects-section';
 
 const todoSection = document.createElement('section');
+const todoList = document.createElement('div');
+todoList.id = 'todo-list';
 todoSection.id = 'todo-section';
+
+todoSection.append(todoList);
 
 const container = document.createElement('div');
 container.id = 'container';
@@ -37,6 +41,7 @@ projectsSection.append(projectList);
 container.append(projectsSection, todoSection);
 content.append(container);
 
+
 // retrieves projects from localStorage and inserts into projectsSection
 updateDOM();
 
@@ -44,3 +49,4 @@ updateDOM();
 newProject();
 
 projectButtonListener();
+newTodo();

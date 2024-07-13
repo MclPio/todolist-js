@@ -1,5 +1,8 @@
-import { Storage } from "../modules/storage";
+import { Storage } from "../../modules/storage";
 
+/**
+ * Updates the DOM with project data retrieved from storage.
+ */
 function updateDOM(){
   let projectsArray = Storage.retrieve();
   const projectsSection = document.getElementById('projects');
