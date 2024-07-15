@@ -1,4 +1,6 @@
-
+/**
+ * Creates page boilerplate/skeleton elements
+ */
 function skeleton() {
   const content = document.getElementById('content');
 
@@ -11,8 +13,15 @@ function skeleton() {
   const todoSection = document.createElement('section');
   todoSection.id = 'todo-section';
 
+  projectsSectionChildren();
+  todoSectionChildren();
+
+  container.append(projectsSection, todoSection);
+  content.append(container);
+
   function projectsSectionChildren() {
-    function projectHeaderContainer() {
+    // return projects-header-container div with children
+    function initProjectHeaderContainer() {
       const projectHeaderContainer = document.createElement('div');
       projectHeaderContainer.classList = 'project-header-container';
     
@@ -24,13 +33,16 @@ function skeleton() {
       addProjectButton.textContent = 'New Project';
 
       projectHeaderContainer.append(myProjectsHeader, addProjectButton);
+
       return projectHeaderContainer;
     }
 
     const projectList = document.createElement('div');
     projectList.id = 'projects';
+
+    projectsSection.append(initProjectHeaderContainer(), projectList);
   }
-  
+
   function todoSectionChildren() {
     const newTodoButton = document.createElement('button');
     newTodoButton.innerText = 'New Todo';
@@ -38,6 +50,8 @@ function skeleton() {
   
     const todoList = document.createElement('div');
     todoList.id = 'todo-list';
+
+    todoSection.append(newTodoButton, todoList);
   }
 }
 

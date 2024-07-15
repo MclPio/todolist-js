@@ -31,7 +31,10 @@ function projectToDOM(project){
   todoList.append(todoUl);
 }
 
-function projectButtonListener(){
+/**
+ * shows project todos in dom todo-list
+ */
+function showProject(){
   const elements = document.getElementsByClassName('project-button');
   
   for(let i = 0; i < elements.length; i++){
@@ -43,4 +46,4 @@ function projectButtonListener(){
 }
 
 
-export { projectButtonListener };
+export { showProject };
