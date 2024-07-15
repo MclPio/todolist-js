@@ -34,7 +34,7 @@ function projectToDOM(project){
 /**
  * shows project todos in dom todo-list
  */
-function showProject(){
+function projectShow(){
   const elements = document.getElementsByClassName('project-button');
   
   for(let i = 0; i < elements.length; i++){
@@ -46,4 +46,4 @@ function showProject(){
 }
 
 
-export { showProject };
+export { projectShow };

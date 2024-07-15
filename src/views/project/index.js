@@ -1,9 +1,9 @@
 import { Storage } from "../../modules/storage";
 
 /**
- * Updates the DOM with project data retrieved from storage.
+ * Updates the DOM projectsSection element with project list retrieved from storage.
  */
-function updateDOM(){
+function projectIndex(){
   let projectsArray = Storage.retrieve();
   const projectsSection = document.getElementById('projects');
   projectsSection.innerHTML = '';
@@ -27,4 +27,4 @@ function updateDOM(){
   }
 }
 
-export { updateDOM };
+export { projectIndex };

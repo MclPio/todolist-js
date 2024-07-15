@@ -1,11 +1,11 @@
-import { newProject } from "./views/project/new.js";
-import { updateDOM } from './views/project/index.js';
 import './css/style.css';
 import 'material-symbols';
-import { showProject } from './views/project/show.js';
 import { skeleton } from "./helpers/skeleton.js";
+import { projectNew } from "./views/project/new.js";
+import { projectIndex } from './views/project/index.js';
+import { projectShow } from './views/project/show.js';
 
 skeleton();
-updateDOM();
-newProject();
-showProject();
+projectIndex();
+projectNew();
+projectShow();

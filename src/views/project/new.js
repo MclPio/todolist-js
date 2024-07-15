@@ -1,11 +1,11 @@
 import { Project } from "../../modules/project";
 import { Storage } from '../../modules/storage';
-import { updateDOM } from "./index";
+import { projectIndex } from "./index";
 
 /**
- * Updates the DOM with project data retrieved from storage.
+ * New Project Button Event Listener, DOM updates, and Storage updates.
  */
-function newProject() {
+function projectNew() {
   const newProjectButton = document.getElementById('new-project');
 
   newProjectButton.addEventListener('click', () => {
@@ -40,7 +40,7 @@ function newProject() {
         if (input.value) {
           const newProject = new Project(input.value);
           Storage.save(newProject);
-          updateDOM();
+          projectIndex();
         } else {
           alert('Project name cannot be empty')
         }
@@ -54,4 +54,4 @@ function newProject() {
   })
 }
 
-export { newProject };
+export { projectNew };
