@@ -2,6 +2,7 @@ import { format } from 'date-fns';
 import { Todo } from "../../modules/todo";
 import { Project } from "../../modules/project";
 import { Storage } from "../../modules/storage";
+import { projectShow } from '../project/show';
 
 function todoNew() {
   const newTodoButton = document.getElementById('new-todo-button');
@@ -72,11 +73,9 @@ function todoNew() {
         let option = document.createElement('option');
         option.value = i;
         option.text = i;
-        if (i == 4) {
-          option.selected = true;
-        }
         prioritySelect.append(option);
       }
+      prioritySelect.options[3].selected = true;
   
       // cancel new todo
       const cancelButton = document.createElement('button');
@@ -97,12 +96,12 @@ function todoNew() {
         if (form.reportValidity()) {
           const newTodo = new Todo(nameInput.value, descInput.value, dueDateInput.value, dueTimeInput.value, prioritySelect.value);
           let project = Storage.getProject(currentProjectID);
-          console.log(newTodo);
-          // insert new todo
-          // save project to storage
-          // update dom
-          // Storage.save();
-          // projectIndex();
+          project.todos.push(newTodo);
+          Storage.save(project);
+          projectShow();
+          dialog.close();
+          form.reset();
+          prioritySelect.options[3].selected = true
         } else {
           // Form validation responses give good hints
         }

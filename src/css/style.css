@@ -72,6 +72,10 @@ body,html {
   display: inline-block;
 }
 
+.project-container.selected {
+  background-color: #ddd6fe;
+}
+
 .material-symbols-outlined {
   font-size: inherit !important;
 }

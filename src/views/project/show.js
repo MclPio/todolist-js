@@ -1,6 +1,7 @@
 import { Todo } from "../../modules/todo";
 import { Storage } from "../../modules/storage";
 
+// NEED TO SHOW CURRENT PROJECT AFTER REFRESH
 function projectToDOM(project){
   const todoList = document.getElementById('todo-list');
   todoList.innerHTML = '';
@@ -21,8 +22,10 @@ function projectToDOM(project){
  * shows project todos in dom todo-list
  */
 function projectShow(){
+  // render last used project
+  projectToDOM(Storage.getProject(localStorage.getItem('currentProjectID')));
   const elements = document.getElementsByClassName('project-button');
-  
+
   for(let i = 0; i < elements.length; i++){
     elements[i].addEventListener('click', ()=>{
       let projectID = (elements[i].dataset.id);
