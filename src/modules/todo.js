@@ -12,6 +12,7 @@ class Todo {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
+    this.dueTime = dueTime;
     this.priority = priority;
     this.complete = false;
   }

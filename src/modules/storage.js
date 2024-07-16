@@ -6,7 +6,8 @@ class Storage {
     let projects = [];
 
     for (let key in obj) {
-      if (key == 'projectIDList') {
+      // if the key is not a number, skip iteration
+      if (!(Boolean(Number(key)))) {
         continue;
       }
 
@@ -62,6 +63,14 @@ class Storage {
     let project = new Project(obj.name, obj.todos, obj.id);
     // console.log(project);
     return project;
+  }
+
+  static setCurrentProjectID(id) {
+    localStorage.setItem('currentProjectID', id);
+  }
+
+  static getCurrentProjectID() {
+    return JSON.parse(localStorage.getItem('currentProjectID'));
   }
 }
 
