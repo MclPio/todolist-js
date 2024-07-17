@@ -22,6 +22,9 @@ function projectToDOM(project){
  * shows project todos in dom todo-list
  */
 function projectShow(){
+  if (!localStorage.getItem('currentProjectID')) {
+    return;
+  }
   // render last used project
   projectToDOM(Storage.getProject(localStorage.getItem('currentProjectID')));
   const elements = document.getElementsByClassName('project-button');

@@ -8,7 +8,9 @@ class Storage {
     for (let key in obj) {
       // if the key is not a number, skip iteration
       if (!(Boolean(Number(key)))) {
-        continue;
+        if (key != 0) {
+          continue;
+        }
       }
 
       let parsedObj = JSON.parse(obj[key]);
@@ -59,9 +61,12 @@ class Storage {
 
   // returns project obj
   static getProject(id) {
+    if (!localStorage.getItem(id)) {
+      return;
+    }
+
     let obj = JSON.parse(localStorage.getItem(id));
     let project = new Project(obj.name, obj.todos, obj.id);
-    // console.log(project);
     return project;
   }
 
