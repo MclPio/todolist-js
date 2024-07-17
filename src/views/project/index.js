@@ -18,7 +18,7 @@ function projectIndex(){
     projectButton.innerHTML = projectsArray[i].name;
 
     const projectOptionsButton = document.createElement('button');
-    projectOptionsButton.classList = 'project-options-button';
+    projectOptionsButton.classList = 'project-option-button';
     projectOptionsButton.innerHTML = `<span class="material-symbols-outlined">more_horiz</span>`;
 
     projectContainer.append(projectButton, projectOptionsButton);

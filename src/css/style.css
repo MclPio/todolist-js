@@ -52,7 +52,7 @@ body,html {
   justify-content: space-between;
 }
 
-.project-options-button {
+.project-option-button {
   right: 10px;
   display: none;
   cursor: pointer;
@@ -60,15 +60,15 @@ body,html {
   background-color: transparent;
 }
 
-.project-options-button:hover {
+.project-option-button:hover {
   background-color: #c7d2fe;
 }
 
-.project-options-button:active {
+.project-option-button:active {
   background-color: #a5b4fc;
 }
 
-.project-container:hover .project-options-button {
+.project-container:hover .project-option-button {
   display: inline-block;
 }
 
