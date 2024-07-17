@@ -44,6 +44,9 @@ function skeleton() {
   }
 
   function todoSectionChildren() {
+    const projectName = document.createElement('p');
+    projectName.id = 'project-name';
+
     const newTodoButton = document.createElement('button');
     newTodoButton.innerText = 'New Todo';
     newTodoButton.id = 'new-todo-button';
@@ -51,7 +54,7 @@ function skeleton() {
     const todoList = document.createElement('div');
     todoList.id = 'todo-list';
 
-    todoSection.append(newTodoButton, todoList);
+    todoSection.append(projectName, newTodoButton, todoList);
   }
 }
 

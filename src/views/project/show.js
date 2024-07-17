@@ -1,5 +1,6 @@
 import { Todo } from "../../modules/todo";
 import { Storage } from "../../modules/storage";
+import { el } from "date-fns/locale";
 
 // NEED TO SHOW CURRENT PROJECT AFTER REFRESH
 function projectToDOM(project){
@@ -23,19 +24,46 @@ function projectToDOM(project){
  */
 function projectShow(){
   if (!localStorage.getItem('currentProjectID')) {
-    return;
+    if(localStorage.getItem('currentProjectID') != 0) {
+      return;
+    }
   }
   // render last used project
-  projectToDOM(Storage.getProject(localStorage.getItem('currentProjectID')));
-  const elements = document.getElementsByClassName('project-button');
+  const lastProject = Storage.getProject(localStorage.getItem('currentProjectID'));
+  projectToDOM(lastProject);
+  updateProjectName(lastProject.name);
 
+  const elements = document.getElementsByClassName('project-button');
+  
   for(let i = 0; i < elements.length; i++){
+    if (elements[i].dataset.id == lastProject.id) {
+      setSelected(elements[i].parentNode);
+    }
     elements[i].addEventListener('click', ()=>{
+      removeSelected(elements);
       let projectID = (elements[i].dataset.id);
       Storage.setCurrentProjectID(projectID);
-      projectToDOM(Storage.getProject(projectID))    
+      projectToDOM(Storage.getProject(projectID));
+      setSelected(elements[i].parentNode);
+      updateProjectName(elements[i].innerText);
     })
   }
+}
+
+// adds selected class on current project
+function setSelected(node) {
+  node.classList.add('selected');
+}
+
+function removeSelected(nodes) {
+  for (let i=0; i < nodes.length; i++) {
+    nodes[i].parentNode.classList.remove('selected');
+  }
+}
+
+function updateProjectName(name) {
+  const projectName = document.getElementById('project-name');
+  projectName.innerText = name;
 }
 
 

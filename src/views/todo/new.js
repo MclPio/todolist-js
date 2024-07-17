@@ -1,6 +1,5 @@
 import { format } from 'date-fns';
 import { Todo } from "../../modules/todo";
-import { Project } from "../../modules/project";
 import { Storage } from "../../modules/storage";
 import { projectShow } from '../project/show';
 
@@ -8,13 +7,12 @@ function todoNew() {
   const newTodoButton = document.getElementById('new-todo-button');
   
   newTodoButton.addEventListener('click', () => {
-    // currentProjectID
-    // Make form.
-    // Make todoObj
-    // updateCurrentProject in storage
-    // refresh DOM
-
-    let currentProjectID = Storage.getCurrentProjectID();
+    if (!Storage.getCurrentProjectID()) {
+      if (Storage.getCurrentProjectID() != 0) {
+        alert('Create a project first');
+        return;
+      }
+    }
     let form = document.createElement('form');
     form.id = 'new-todo-form';
 
@@ -95,7 +93,7 @@ function todoNew() {
         event.preventDefault();
         if (form.reportValidity()) {
           const newTodo = new Todo(nameInput.value, descInput.value, dueDateInput.value, dueTimeInput.value, prioritySelect.value);
-          let project = Storage.getProject(currentProjectID);
+          let project = Storage.getProject(Storage.getCurrentProjectID());
           project.todos.push(newTodo);
           Storage.save(project);
           projectShow();

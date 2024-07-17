@@ -1,6 +1,6 @@
 /* 
 option button uses tailwind Indigo colors
-project-button uses tailwind Purple colors
+project-button uses tailwind Violet colors
 */
 
 body,html {
@@ -73,7 +73,7 @@ body,html {
 }
 
 .project-container.selected {
-  background-color: #ddd6fe;
+  background-color: #f0abfc;
 }
 
 .material-symbols-outlined {

@@ -1,6 +1,7 @@
 import { Project } from "../../modules/project";
 import { Storage } from '../../modules/storage';
 import { projectIndex } from "./index";
+import { projectShow } from "./show";
 
 /**
  * New Project Button Event Listener, DOM updates, and Storage updates.
@@ -40,7 +41,9 @@ function projectNew() {
         if (input.value) {
           const newProject = new Project(input.value);
           Storage.save(newProject);
+          Storage.setCurrentProjectID(newProject.id);
           projectIndex();
+          projectShow();
         } else {
           alert('Project name cannot be empty')
         }

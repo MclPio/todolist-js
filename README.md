@@ -8,6 +8,7 @@
 1. delete
 
 ### todo
+1. fix todo new for other projects? seems to default to key 0
 1. edit/update
 1. delete
 1. after todo submission update dom
