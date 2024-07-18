@@ -2,6 +2,7 @@ import { Project } from "../../modules/project";
 import { Storage } from '../../modules/storage';
 import { projectIndex } from "./index";
 import { projectShow } from "./show";
+import { refresh } from "../refresh";
 
 function projectEdit() {
   const container = document.getElementById('container');
@@ -43,20 +44,20 @@ function projectEdit() {
   container.append(dialog);
   for (let i = 0; i < optionButtons.length; i++) {
     let button = optionButtons[i];
+    let projectID = button.previousSibling.dataset.id
     // issue: new project will need to have this added when created
     button.addEventListener('click', ()=> {
-      let projectID = button.previousSibling.dataset.id
       let projectName = Storage.getProject(projectID).name;
-  
       projectNameInput.value = projectName;
-      console.log(projectID);
 
       destroyButton.addEventListener('click', () => {
         if (confirm(`This will delete ${projectName} and its todos.`)) {
+
           Storage.destroy(projectID);
-          // change currentProjectID. need to make a default project!
-          // refresh DOM! (old project name, old project selection and current project ID still same.)
+          Storage.setCurrentProjectID(0);
           dialog.close();
+          refresh();
+          // refresh DOM! (old project name, old project selection)
         }
         
       })

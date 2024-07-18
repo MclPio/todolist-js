@@ -21,7 +21,11 @@ function projectIndex(){
     projectOptionsButton.classList = 'project-option-button';
     projectOptionsButton.innerHTML = `<span class="material-symbols-outlined">more_horiz</span>`;
 
-    projectContainer.append(projectButton, projectOptionsButton);
+    if (projectsArray[i].id === 0) {
+      projectContainer.append(projectButton)
+    } else {
+      projectContainer.append(projectButton, projectOptionsButton);
+    }
     projectsSection.append(projectContainer);
   }
 }
