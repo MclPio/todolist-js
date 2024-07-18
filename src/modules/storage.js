@@ -33,10 +33,8 @@ class Storage {
   }
 
   // untested delete function
-  static destroy(project) {
-    let projects = retrieve()
-    projects = projects.filter(p => p !== item)
-    localStorage.setItem('projects', JSON.stringify(projects));
+  static destroy(projectID) {
+    localStorage.removeItem(projectID);
   }
 
   /**
@@ -76,6 +74,10 @@ class Storage {
 
   static getCurrentProjectID() {
     return JSON.parse(localStorage.getItem('currentProjectID'));
+  }
+
+  static getCurrentProject() {
+    this.getProject(this.getCurrentProjectID)
   }
 }
 
