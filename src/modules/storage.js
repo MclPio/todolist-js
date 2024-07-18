@@ -9,7 +9,9 @@ class Storage {
       // if the key is not a number, skip iteration
       if (!(Boolean(Number(key)))) {
         if (key != 0) {
-          continue;
+          if (key !== "defaultProject"){
+            continue;
+          }
         }
       }
 
@@ -32,7 +34,7 @@ class Storage {
     localStorage.setItem('projects', JSON.stringify(projects));
   }
 
-  // untested delete function
+  // breaks app since currentProjectID does not get reassigned
   static destroy(projectID) {
     localStorage.removeItem(projectID);
   }
@@ -78,6 +80,16 @@ class Storage {
 
   static getCurrentProject() {
     this.getProject(this.getCurrentProjectID)
+  }
+
+  //cleans projectIDList
+  static clean() {
+    let projectObjArray = this.retrieve();
+    let newProjectIDs = [];
+    for (let i = 0; i < projectObjArray.length; i++) {
+      newProjectIDs.push(projectObjArray[i].id);
+    }
+    this.updateProjectIDList(newProjectIDs);
   }
 }
 
