@@ -17,11 +17,12 @@ function projectEdit() {
     let cancelButton = document.createElement('button');
     cancelButton.innerText = 'Cancel';
     cancelButton.id = 'cancel-project-update';
-    cancelButton.addEventListener('click', () => {
-      dialog.close();
-    })
     return cancelButton;
   }();
+
+  cancel.addEventListener('click', () => {
+    dialog.close();
+  });
 
   const submitButton = function() {
     let submitButton = document.createElement('button');
@@ -42,36 +43,24 @@ function projectEdit() {
 
   dialog.append(modalTitle, projectNameInput, submitButton, cancel, destroyButton);
   container.append(dialog);
-  for (let i = 0; i < optionButtons.length; i++) {
-    let button = optionButtons[i];
-    let projectID = button.previousSibling.dataset.id
-    // issue: new project will need to have this added when created
-    button.addEventListener('click', ()=> {
-      let projectName = Storage.getProject(projectID).name;
-      projectNameInput.value = projectName;
 
-      destroyButton.addEventListener('click', () => {
-        if (confirm(`This will delete ${projectName} and its todos.`)) {
-
-          Storage.destroy(projectID);
-          Storage.setCurrentProjectID(0);
-          dialog.close();
-          refresh();
-          // refresh DOM! (old project name, old project selection)
-        }
-        
-      })
+  for (let i = 0; i < optionButtons.length; i++ ) {
+    let optButton = optionButtons[i];
+    optButton.addEventListener('click', () => {
+      console.log(`optButton for ${optButton.previousSibling.innerText} is clicked!`)
+      projectNameInput.value = optButton.previousSibling.innerText;
       dialog.showModal();
     })
-
-    // rename:
-    // update Project name in localStorage
-    // update Project name in dom
-    
-    // delete:
-    // delete project from localStorage
-    // delete project from dom
   }
+
+  //   // rename:
+  //   // update Project name in localStorage
+  //   // update Project name in dom
+    
+  //   // delete:
+  //   // delete project from localStorage
+  //   // delete project from dom
+  // }
 }
 
 export { projectEdit }
