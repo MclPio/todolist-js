@@ -26,12 +26,8 @@ class Storage {
     localStorage.setItem(newProject.id, JSON.stringify(newProject));
   }
 
-  // Filter so duplicate projects are not made...
   static update(project) {
-    let projects = retrieve();
-    projects.filter(p => p !== project);
-    projects.push(project);
-    localStorage.setItem('projects', JSON.stringify(projects));
+    localStorage.setItem(project.id, JSON.stringify(project))
   }
 
   // breaks app since currentProjectID does not get reassigned
@@ -79,7 +75,7 @@ class Storage {
   }
 
   static getCurrentProject() {
-    this.getProject(this.getCurrentProjectID)
+    return this.getProject(this.getCurrentProjectID())
   }
 
   //cleans projectIDList

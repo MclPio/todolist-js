@@ -1,8 +1,4 @@
-import { Project } from "../../modules/project";
-import { Storage } from '../../modules/storage';
-import { projectIndex } from "./index";
-import { projectShow } from "./show";
-import { refresh } from "../refresh";
+import { ProjectController } from "../../controllers/project";
 
 function projectEdit() {
   const container = document.getElementById('container');
@@ -39,28 +35,32 @@ function projectEdit() {
   }();
 
   const projectNameInput = document.createElement('input');
+  projectNameInput.id = 'edited-project-name'
   projectNameInput.type = 'text';
 
   dialog.append(modalTitle, projectNameInput, submitButton, cancel, destroyButton);
   container.append(dialog);
 
+  // modal show click event
   for (let i = 0; i < optionButtons.length; i++ ) {
     let optButton = optionButtons[i];
     optButton.addEventListener('click', () => {
       console.log(`optButton for ${optButton.previousSibling.innerText} is clicked!`)
+      projectNameInput.setAttribute('data-id', `${optButton.previousSibling.dataset.id}`);
       projectNameInput.value = optButton.previousSibling.innerText;
       dialog.showModal();
     })
   }
 
-  //   // rename:
-  //   // update Project name in localStorage
-  //   // update Project name in dom
-    
-  //   // delete:
-  //   // delete project from localStorage
-  //   // delete project from dom
-  // }
+  // when user clicks submit
+  submitButton.addEventListener('click', () => {
+    ProjectController.update(projectNameInput.dataset.id, projectNameInput.value)
+  })
+
+  // when user clicks delete
+  destroyButton.addEventListener('click', () => {
+    ProjectController.destroy(projectNameInput.dataset.id)
+  })
 }
 
 export { projectEdit }

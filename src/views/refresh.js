@@ -3,11 +3,16 @@ import { projectNew } from "./project/new";
 import { projectShow } from "./project/show";
 import { projectEdit } from "./project/edit";
 import { Storage } from "../modules/storage";
+import { skeleton } from "../helpers/skeleton"
+import { todoNew } from "../views/todo/new"
+import { defaultProject } from "../helpers/defaultProject"
 
 
 // function to refresh DOM, currentProjectID
 function refresh(){
-  const content = document.getElementById('content').innerHTML = '';
+  const content = document.getElementById('content');
+  content.innerHTML = '';
+  defaultProject();
   Storage.clean();
   skeleton();
   projectIndex();
@@ -15,10 +20,6 @@ function refresh(){
   projectShow();
   todoNew();
   projectEdit();
-  defaultProject();
-
-
-  //set currentProjectID to default project
 }
 
 export { refresh };
