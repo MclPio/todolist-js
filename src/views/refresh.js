@@ -6,6 +6,7 @@ import { Storage } from "../modules/storage";
 import { skeleton } from "../helpers/skeleton"
 import { todoNew } from "../views/todo/new"
 import { defaultProject } from "../helpers/defaultProject"
+import { todoEdit } from "../views/todo/edit";
 
 
 // function to refresh DOM, currentProjectID
@@ -20,6 +21,7 @@ function refresh(){
   projectShow();
   todoNew();
   projectEdit();
+  todoEdit();
 }
 
 export { refresh };

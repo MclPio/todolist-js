@@ -1,5 +1,6 @@
 import { Todo } from "../../modules/todo";
 import { Storage } from "../../modules/storage";
+import { refresh } from "../refresh";
 
 // NEED TO SHOW CURRENT PROJECT AFTER REFRESH
 function projectToDOM(project){
@@ -12,8 +13,11 @@ function projectToDOM(project){
     let todoObj = new Todo(item.title, item.description, item.dueDate, item.dueTime, item.priority);
     // write code to insert todo obj to dom maybe call todo/show?
     const todoLi = document.createElement('li');
+    todoLi.classList = 'todo-li';
     todoLi.innerText = todoObj.title
+    todoLi.dataset.index = i
     todoUl.append(todoLi);
+    // you can get todo index with this: todoLi.dataset.index
   }
   todoList.append(todoUl);
 }
@@ -45,6 +49,7 @@ function projectShow(){
       projectToDOM(Storage.getProject(projectID));
       setSelected(elements[i].parentNode);
       updateProjectName(elements[i].innerText);
+      refresh();
     })
   }
 }

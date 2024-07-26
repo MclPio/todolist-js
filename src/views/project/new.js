@@ -43,8 +43,6 @@ function projectNew() {
           const newProject = new Project(input.value);
           Storage.save(newProject);
           Storage.setCurrentProjectID(newProject.id);
-          // projectIndex();
-          // projectShow();
           refresh();
         } else {
           alert('Project name cannot be empty')
