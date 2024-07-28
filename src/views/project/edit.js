@@ -34,11 +34,15 @@ function projectEdit() {
     return destroyButton;
   }();
 
+  const projectNameLabel = document.createElement('label');
+  projectNameLabel.textContent = 'Name'
+  projectNameLabel.htmlFor = 'edited-project-name';
+
   const projectNameInput = document.createElement('input');
   projectNameInput.id = 'edited-project-name'
   projectNameInput.type = 'text';
 
-  dialog.append(modalTitle, projectNameInput, submitButton, cancel, destroyButton);
+  dialog.append(modalTitle, projectNameLabel, projectNameInput, submitButton, cancel, destroyButton);
   container.append(dialog);
 
   // modal show click event
