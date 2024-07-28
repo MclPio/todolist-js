@@ -13,8 +13,15 @@ function projectToDOM(project){
     // write code to insert todo obj to dom maybe call todo/show?
     const todoLi = document.createElement('li');
     todoLi.classList = 'todo-li';
-    todoLi.innerText = todoObj.title
+    todoLi.innerText = todoObj.title;
     todoLi.dataset.index = i
+
+    let dueDate = document.createElement('li');
+    dueDate.innerText = todoObj.dueDate;
+    dueDate.classList = 'due-date'
+
+    todoLi.append(dueDate)
+
     todoUl.append(todoLi);
     // you can get todo index with this: todoLi.dataset.index
   }

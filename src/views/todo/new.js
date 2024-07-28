@@ -84,12 +84,16 @@ function todoNew() {
         event.preventDefault();
         dialog.close();
       })
-  
+
       // submit new todo
       const submitButton = document.createElement('button');
       submitButton.id = 'submit-new-todo';
       submitButton.textContent = 'submit';
 
+      const buttonGroup = document.createElement('div');
+      buttonGroup.classList = 'button-group';
+      buttonGroup.append(submitButton, cancelButton);
+  
       submitButton.addEventListener('click', (event) => {
         event.preventDefault();
         if (form.reportValidity()) {
@@ -108,7 +112,7 @@ function todoNew() {
       })
 
       form.append(nameLabel, nameInput, descLabel, descInput, dueDateLabel, dueDateInput,dueTimeLabel, 
-                  dueTimeInput, priorityLabel, prioritySelect, submitButton, cancelButton);
+                  dueTimeInput, priorityLabel, prioritySelect, buttonGroup);
       dialog.append(form);
   
       const todoSection = document.getElementById('todo-section');

@@ -42,10 +42,9 @@ function todoEdit() {
   dialog.append(modalTitle, form, submitButton, cancel, destroyButton);
   container.append(dialog);
 
+
   for (let i = 0; i < todoLi.length; i++ ) {
-    const button = document.createElement('button');
-    button.innerText = 'Edit';
-    button.addEventListener('click', () => {
+    todoLi[i].addEventListener('click', () => {
       let todo = TodoController.show(todoLi[i].dataset.index);
       fillTodoForm(form, todo);
       submitButton.addEventListener('click', () => {
@@ -61,7 +60,6 @@ function todoEdit() {
       })
       dialog.showModal();
     })
-    todoLi[i].append(button);
   }
 }
 

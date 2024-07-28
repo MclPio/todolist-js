@@ -92,3 +92,38 @@ body,html {
   align-items: center;
   padding-top: 1rem;
 }
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.todo-li {
+  cursor: pointer;
+}
+
+.todo-li:hover {
+  background-color: #f0abfc;
+}
+
+#new-todo-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#task-desc {
+  height: 8em;
+}
+
+#submit-new-todo, #cancel-new-todo{
+  max-width: fit-content;
+}
+
+.button-group {
+  display: flex;
+}
+
+.due-date {
+  font-size: small;
+  height: 2rem;
+}
