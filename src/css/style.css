@@ -2,6 +2,19 @@
 option button uses tailwind Indigo colors
 project-button uses tailwind Violet colors
 */
+:root {
+  --priority-3: #7dd3fc;
+  --priority-3-border: #0c4a6e;
+
+  --priority-2: #6ee7b7;
+  --priority-2-border: #064e3b;
+
+  --priority-1: #fda4af;
+  --priority-1-border: #881337;
+
+  --priority-4: #d4d4d8;
+  --priority-4-border: #18181b;
+}
 
 body,html {
   margin: 0;
@@ -126,4 +139,43 @@ ul {
 .due-date {
   font-size: small;
   height: 2rem;
+}
+
+.todo-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+}
+
+.check-button {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.check-button.priority-1 {
+  background-color: var(--priority-1);
+  border: 1px solid var(--priority-1-border);
+}
+
+.check-button.priority-2 {
+  background-color: var(--priority-2);
+  border: 1px solid var(--priority-2-border);
+}
+
+.check-button.priority-3 {
+  background-color: var(--priority-3);
+  border: 1px solid var(--priority-3-border);
+}
+
+.check-button.priority-4 {
+  background-color: var(--priority-4);
+  border: 1px solid var(--priority-4-border);
 }

@@ -8,6 +8,9 @@ function projectToDOM(project){
   const todoUl = document.createElement('ul');
   let todoArray = project.todos
   for(let i = 0; i < todoArray.length; i++) {
+    let todoCheck = document.createElement('div');
+    todoCheck.classList = 'todo-check';
+
     let item = todoArray[i];
     let todoObj = new Todo(item.title, item.description, item.dueDate, item.dueTime, item.priority);
     // write code to insert todo obj to dom maybe call todo/show?
@@ -20,9 +23,14 @@ function projectToDOM(project){
     dueDate.innerText = todoObj.dueDate;
     dueDate.classList = 'due-date'
 
+    let check = document.createElement('button');
+    check.dataset.index = i
+    check.dataset.priority = todoObj.priority
+    check.classList = 'check-button'
+    
     todoLi.append(dueDate)
-
-    todoUl.append(todoLi);
+    todoCheck.append(check, todoLi)
+    todoUl.append(todoCheck);
     // you can get todo index with this: todoLi.dataset.index
   }
   todoList.append(todoUl);
