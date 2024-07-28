@@ -1,5 +1,6 @@
 import { TodoController } from "../../controllers/todo";
-import { todoForm, fillTodoForm } from "../../helpers/todoForm";
+import { todoForm, fillTodoForm, formToTodo } from "../../helpers/todoForm";
+import { refresh } from "../refresh";
 
 function todoEdit() {
   const container = document.getElementById('container');
@@ -19,6 +20,7 @@ function todoEdit() {
 
   cancel.addEventListener('click', () => {
     dialog.close();
+    refresh();
   });
 
   const submitButton = function() {
@@ -44,11 +46,13 @@ function todoEdit() {
     const button = document.createElement('button');
     button.innerText = 'Edit';
     button.addEventListener('click', () => {
-      let todo = TodoController.show(i);
+      let todo = TodoController.show(todoLi[i].dataset.index);
       fillTodoForm(form, todo);
-      // form should be pre filled with current values
-      // send form info to todo controller...
-      // need a complete todo button
+      submitButton.addEventListener('click', () => {
+        let updatedTodo = formToTodo(form);
+        TodoController.update(todoLi[i].dataset.index, updatedTodo);
+        refresh();
+      })
       dialog.showModal();
     })
     todoLi[i].append(button);

@@ -19,9 +19,8 @@ class TodoController {
     return todo;
   }
 
-  static update(index) {
-    // remove old todo from project
-    // add new todo to project
+  static update(index, todo) {
+    Storage.saveTodo(index, todo);
   }
 }
 

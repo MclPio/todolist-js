@@ -1,4 +1,5 @@
 import { format } from 'date-fns';
+import { Todo } from '../modules/todo';
 
 let todoForm = function () {
   let form = document.createElement('form');
@@ -68,7 +69,16 @@ function fillTodoForm(form, todo) {
   form.querySelector('#task-due-date').value = todo.dueDate
   form.querySelector('#task-due-time').value = todo.dueTime
   form.querySelector('#task-priority').options[todo.priority - 1].selected = true;
-  console.log(todo.priority)
 }
 
-export { todoForm, fillTodoForm }
+function formToTodo(form) {
+  let todo = new Todo(form.querySelector('#task-name').value, 
+                      form.querySelector('#task-desc').value,
+                      form.querySelector('#task-due-date').value,
+                      form.querySelector('#task-due-time').value,
+                      form.querySelector('#task-priority').value
+                    );
+  return todo;
+}
+
+export { todoForm, fillTodoForm, formToTodo }
