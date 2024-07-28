@@ -12,6 +12,17 @@ class TodoController {
     Storage.update(project);
     refresh();
   }
+
+  static show(index) {
+    let project = Storage.getCurrentProject();
+    let todo = Storage.getTodo(index, project);
+    return todo;
+  }
+
+  static update(index) {
+    // remove old todo from project
+    // add new todo to project
+  }
 }
 
 export { TodoController };

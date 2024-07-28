@@ -2,6 +2,7 @@ import { format } from 'date-fns';
 import { Todo } from "../../modules/todo";
 import { Storage } from "../../modules/storage";
 import { projectShow } from '../project/show';
+import { refresh } from '../refresh';
 
 function todoNew() {
   const newTodoButton = document.getElementById('new-todo-button');
@@ -96,10 +97,11 @@ function todoNew() {
           let project = Storage.getProject(Storage.getCurrentProjectID());
           project.todos.push(newTodo);
           Storage.save(project);
-          projectShow();
-          dialog.close();
-          form.reset();
-          prioritySelect.options[3].selected = true
+          refresh();
+          // projectShow();
+          // dialog.close();
+          // form.reset();
+          // prioritySelect.options[3].selected = true
         } else {
           // Form validation responses give good hints
         }

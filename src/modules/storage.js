@@ -1,4 +1,5 @@
 import { Project } from "./project";
+import { Todo } from "./todo";
 
 class Storage {
   static retrieve() {
@@ -64,6 +65,13 @@ class Storage {
     let obj = JSON.parse(localStorage.getItem(id));
     let project = new Project(obj.name, obj.todos, obj.id);
     return project;
+  }
+
+  // return todo based on current or specified project
+  static getTodo(index, project = this.getCurrentProject) {
+    let obj = project.todos[index];
+    let todo = new Todo(obj.title, obj.description, obj.dueDate, obj.dueTime, parseInt(obj.priority));
+    return todo;
   }
 
   static setCurrentProjectID(id) {
