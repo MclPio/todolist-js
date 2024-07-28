@@ -59,7 +59,9 @@ function projectEdit() {
 
   // when user clicks delete
   destroyButton.addEventListener('click', () => {
-    ProjectController.destroy(projectNameInput.dataset.id)
+    if (confirm(`Are you sure you want to delete your project?`)) {
+      ProjectController.destroy(projectNameInput.dataset.id)
+    }
   })
 }
 

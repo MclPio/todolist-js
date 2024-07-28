@@ -2,7 +2,6 @@ import { Todo } from "../../modules/todo";
 import { Storage } from "../../modules/storage";
 import { refresh } from "../refresh";
 
-// NEED TO SHOW CURRENT PROJECT AFTER REFRESH
 function projectToDOM(project){
   const todoList = document.getElementById('todo-list');
   todoList.innerHTML = '';

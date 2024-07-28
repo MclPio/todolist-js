@@ -13,7 +13,7 @@ function todoEdit() {
 
   const cancel = function() {
     let cancelButton = document.createElement('button');
-    cancelButton.innerText = 'Cancel';
+    cancelButton.innerText = 'Close';
     cancelButton.id = 'cancel-todo-update';
     return cancelButton;
   }();
@@ -53,7 +53,11 @@ function todoEdit() {
         TodoController.update(todoLi[i].dataset.index, updatedTodo);
       })
       destroyButton.addEventListener('click', () => {
-        TodoController.destroy(todoLi[i].dataset.index);
+        if (confirm("Are you sure?")) {
+          TodoController.destroy(todoLi[i].dataset.index);
+        } else {
+          refresh();
+        }
       })
       dialog.showModal();
     })
