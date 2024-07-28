@@ -21,6 +21,7 @@ class TodoController {
 
   static update(index, todo) {
     Storage.saveTodo(index, todo);
+    refresh();
   }
 }
 

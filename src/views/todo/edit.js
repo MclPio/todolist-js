@@ -51,7 +51,9 @@ function todoEdit() {
       submitButton.addEventListener('click', () => {
         let updatedTodo = formToTodo(form);
         TodoController.update(todoLi[i].dataset.index, updatedTodo);
-        refresh();
+      })
+      destroyButton.addEventListener('click', () => {
+        TodoController.destroy(todoLi[i].dataset.index);
       })
       dialog.showModal();
     })

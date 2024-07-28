@@ -6,7 +6,6 @@
 1. Redesign app
 
 1. todo object
-    1. edit/update action
     1. delete action
     1. improve display
     1. view/logic for clicking complete...
