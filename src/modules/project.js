@@ -7,10 +7,11 @@ class Project {
    * @param {array} todos - todo array
    * @param {integer} id - unique id of project.
    */
-  constructor(name, todos=[], id=this.#setID()) {
+  constructor(name, todos=[], id=this.#setID(), completed = []) {
     this.id = id;
     this.name = name;
     this.todos = todos;
+    this.completed = completed;
   }
 
   addTodo(item) {
