@@ -7,7 +7,7 @@ import { skeleton } from "../helpers/skeleton"
 import { todoNew } from "../views/todo/new"
 import { defaultProject } from "../helpers/defaultProject"
 import { todoEdit } from "../views/todo/edit";
-import { checkStyle } from "../helpers/checkStyle";
+import { checkBox, checkMark } from "../helpers/checkBox";
 
 
 // function to refresh DOM, currentProjectID
@@ -23,7 +23,8 @@ function refresh(){
   todoNew();
   projectEdit();
   todoEdit();
-  checkStyle();
+  checkBox();
+  checkMark();
 }
 
 export { refresh };

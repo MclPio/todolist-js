@@ -8,13 +8,13 @@ class Todo {
    * @param {1|2|3|4} [priority=4] - The priority of the todo. Must be 1, 2, 3, or 4.
    * @param {Boolean} [complete=false] - Indicate if todo is complete or not.
    */
-  constructor(title, description='', dueDate=null, dueTime=null, priority=4){
+  constructor(title, description='', dueDate=null, dueTime=null, priority=4, complete=false){
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
     this.dueTime = dueTime;
     this.priority = priority;
-    this.complete = false;
+    this.complete = complete;
   }
 
   sayHi(){

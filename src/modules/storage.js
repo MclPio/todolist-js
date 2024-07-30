@@ -70,12 +70,11 @@ class Storage {
   // return todo based on current or specified project
   static getTodo(index, project) {
     let obj = project.todos[index];
-    let todo = new Todo(obj.title, obj.description, obj.dueDate, obj.dueTime, parseInt(obj.priority));
+    let todo = new Todo(obj.title, obj.description, obj.dueDate, obj.dueTime, parseInt(obj.priority), obj.complete);
     return todo;
   }
 
-  static saveTodo(index, todo) {
-    let project = this.getCurrentProject();
+  static saveTodo(index, todo, project = this.getCurrentProject()) {
     project.todos[index] = todo;
     this.save(project);
   }

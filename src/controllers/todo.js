@@ -23,6 +23,12 @@ class TodoController {
     Storage.saveTodo(index, todo);
     refresh();
   }
+
+  static toggleComplete(index, project){
+    let todo = project.todos[index];
+    todo.complete = !todo.complete
+    Storage.saveTodo(index, todo, project)
+  }
 }
 
 export { TodoController };
