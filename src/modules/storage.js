@@ -59,7 +59,7 @@ class Storage {
   // returns project obj
   static getProject(id) {
     if (!localStorage.getItem(id)) {
-      return;
+      return null;
     }
 
     let obj = JSON.parse(localStorage.getItem(id));
