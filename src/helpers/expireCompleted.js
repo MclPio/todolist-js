@@ -12,7 +12,6 @@ function checkStorage(){
   const currentDate = new Date()
 
   const expiryDate = new Date(storage);
-  console.log(currentDate, expiryDate)
   if (currentDate > expiryDate) {
     localStorage.removeItem('expiryDate');
     setStorage();
