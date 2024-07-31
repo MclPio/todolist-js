@@ -17,7 +17,7 @@ class Storage {
       }
 
       let parsedObj = JSON.parse(obj[key]);
-      let project = new Project(parsedObj.name, parsedObj.todos, parsedObj.id);
+      let project = new Project(parsedObj.name, parsedObj.todos, parsedObj.id, parsedObj.completed);
       projects.push(project);
     }
     return projects;
@@ -63,20 +63,34 @@ class Storage {
     }
 
     let obj = JSON.parse(localStorage.getItem(id));
-    let project = new Project(obj.name, obj.todos, obj.id);
+    let project = new Project(obj.name, obj.todos, obj.id, obj.completed);
     return project;
   }
 
   // return todo based on current or specified project
   static getTodo(index, project) {
     let obj = project.todos[index];
-    let todo = new Todo(obj.title, obj.description, obj.dueDate, obj.dueTime, parseInt(obj.priority), obj.complete);
+    let todo = new Todo(obj.title, obj.description, obj.dueDate, obj.dueTime, parseInt(obj.priority), obj.completed);
     return todo;
   }
 
   static saveTodo(index, todo, project = this.getCurrentProject()) {
     project.todos[index] = todo;
     this.save(project);
+  }
+
+  static moveTodoToCompleted(todo, project){
+    project.completed.push(todo)
+    this.save(project)
+  }
+
+  static destroyAllCompleted() {
+    let projects = this.retrieve()
+    for (let i = 0; i < projects.length; i++) {
+      let project = projects[i]
+      project.completed = []
+      this.update(project)
+    }
   }
 
   static setCurrentProjectID(id) {

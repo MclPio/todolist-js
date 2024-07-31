@@ -8,6 +8,7 @@ import { todoNew } from "../views/todo/new"
 import { defaultProject } from "../helpers/defaultProject"
 import { todoEdit } from "../views/todo/edit";
 import { checkBox, checkMark } from "../helpers/checkBox";
+import { checkStorage, setStorage } from "../helpers/expireCompleted";
 
 
 // function to refresh DOM, currentProjectID
@@ -25,6 +26,8 @@ function refresh(){
   todoEdit();
   checkBox();
   checkMark();
+  setStorage();
+  checkStorage();
 }
 
 export { refresh };

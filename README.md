@@ -12,5 +12,5 @@
     1. optional: add completed array for project todos.
         1. once a todo is complete
             1. remove from DOM
-            1. move from todo array to complted array
+            1. move from todo array to completed array
 

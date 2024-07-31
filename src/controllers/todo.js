@@ -27,7 +27,9 @@ class TodoController {
   static toggleComplete(index, project){
     let todo = project.todos[index];
     todo.complete = !todo.complete
-    Storage.saveTodo(index, todo, project)
+    project.todos.splice(index,1);
+    Storage.moveTodoToCompleted(todo, project)
+    
   }
 }
 
