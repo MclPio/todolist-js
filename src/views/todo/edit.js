@@ -8,7 +8,7 @@ function todoEdit() {
   const dialog = document.createElement('dialog');
   dialog.id = 'todo-options';
 
-  const modalTitle = document.createElement('h1');
+  const modalTitle = document.createElement('p');
   modalTitle.innerText = 'Edit Todo';
 
   const cancel = function() {

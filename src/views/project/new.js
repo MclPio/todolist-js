@@ -15,6 +15,10 @@ function projectNew() {
       const dialog = document.getElementById('form-group');
       dialog.showModal();
     } else {
+
+      const modalTitle = document.createElement('p');
+      modalTitle.innerText = 'New Project';
+    
       const dialog = document.createElement('dialog');
       dialog.id = 'form-group';
   
@@ -48,7 +52,7 @@ function projectNew() {
           alert('Project name cannot be empty')
         }
       })
-      dialog.append(label, input, submitButton, cancelButton);
+      dialog.append(modalTitle, label, input, submitButton, cancelButton);
   
       const projects = document.getElementById('projects');
       projects.append(dialog);

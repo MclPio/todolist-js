@@ -6,7 +6,7 @@ function projectEdit() {
   const dialog = document.createElement('dialog');
   dialog.id = 'project-options';
 
-  const modalTitle = document.createElement('h1');
+  const modalTitle = document.createElement('p');
   modalTitle.innerText = 'Edit Project';
 
   const cancel = function() {

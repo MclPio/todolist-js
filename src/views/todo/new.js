@@ -16,6 +16,9 @@ function todoNew() {
     }
     let form = document.createElement('form');
     form.id = 'new-todo-form';
+    
+    const modalTitle = document.createElement('p');
+    modalTitle.innerText = 'New Todo';    
 
     if (document.getElementById('todo-form')) {
       const dialog = document.getElementById('todo-form');
@@ -111,7 +114,7 @@ function todoNew() {
         }
       })
 
-      form.append(nameLabel, nameInput, descLabel, descInput, dueDateLabel, dueDateInput,dueTimeLabel, 
+      form.append(modalTitle, nameLabel, nameInput, descLabel, descInput, dueDateLabel, dueDateInput,dueTimeLabel, 
                   dueTimeInput, priorityLabel, prioritySelect, buttonGroup);
       dialog.append(form);
   
