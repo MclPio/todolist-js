@@ -34,6 +34,11 @@ project-button uses tailwind Violet colors
   --text-size-3xl: 2.44rem;
   --text-size-4xl: 3.05rem;
   --text-size-5xl: 3.81rem;
+
+  --color-1: white;
+  --color-2: white;
+  --color-3: white;
+  --color-4: white;
 }
 
 html {font-size: 16px;}
@@ -92,7 +97,7 @@ body,html {
 
 #container {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: min(300px, 33%) 1fr;
   background-color: #f5f3ff;
   height: 100vh;
 }
@@ -105,6 +110,8 @@ body,html {
 #projects-section {
   overflow: auto;
   background-color: #ede9fe;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .project-button {
@@ -114,6 +121,7 @@ body,html {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap; 
+  width: 100%;
 }
 
 .project-button:hover {
@@ -129,17 +137,27 @@ body,html {
   background-color: #ddd6fe;
 }
 
-.project-container {
+#new-project{
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: var(--text-size-lg);
   display: flex;
-  justify-content: space-between;
+  
+}
+
+#new-project:hover{
+  background-color: #ff3982;
+  color: #FFFFFF;
+  border-radius: 10px;
 }
 
 .project-option-button {
-  right: 10px;
   display: none;
   cursor: pointer;
   border: none;
   background-color: transparent;
+  border-radius: 5px;
 }
 
 .project-option-button:hover {
@@ -150,12 +168,19 @@ body,html {
   background-color: #a5b4fc;
 }
 
+.project-container {
+  display: flex;
+}
+
 .project-container:hover .project-option-button {
   display: inline-block;
 }
+.project-container.selected, .project-container:hover {
+  border-radius: 5px;
+}
 
 .project-container.selected {
-  background-color: #f0abfc;
+  background-color: #FB6F92;
 }
 
 .material-symbols-outlined {
@@ -165,7 +190,7 @@ body,html {
 .project-header-container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 #todo-section {
@@ -182,6 +207,7 @@ ul {
 
 .todo-li {
   cursor: pointer;
+  width: 100%;
 }
 
 .todo-li:hover {
@@ -207,7 +233,6 @@ ul {
 
 .due-date {
   font-size: var(--text-size-sm);
-  height: 2rem;
 }
 
 .todo-check {
@@ -255,4 +280,28 @@ dialog {
   box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   padding: 1.6rem;
   max-width: 400px;
+}
+
+#new-todo-button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: var(--text-size-md);
+  align-self: stretch;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+#new-todo-button:hover {
+  background-color: #ff3982;
+  color: #FFFFFF;
+}
+
+#project-name {
+  font-size: var(--text-size-xl);
+  font-weight: 500;
+}
+
+.project-header-container>p{
+  font-weight: 500;
 }

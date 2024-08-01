@@ -9,7 +9,7 @@ import { refresh } from "../refresh";
  */
 function projectNew() {
   const newProjectButton = document.getElementById('new-project');
-
+  newProjectButton.innerHTML = '<span class="material-symbols-outlined">add</span>'
   newProjectButton.addEventListener('click', () => {
     if (document.getElementById('form-group')) {
       const dialog = document.getElementById('form-group');
