@@ -27,7 +27,10 @@ function projectToDOM(project){
     check.dataset.index = i
     check.dataset.priority = todoObj.priority
     check.classList = 'check-button'
-    
+    let span = document.createElement('span');
+    span.classList = 'check-mark-span'
+    span.innerText = '✓'
+    check.append(span);
     todoLi.append(dueDate)
     todoCheck.append(check, todoLi)
     todoUl.append(todoCheck);
@@ -80,7 +83,7 @@ function removeSelected(nodes) {
 }
 
 function updateProjectName(name) {
-  const projectName = document.getElementById('project-name');
+  const projectName = document.getElementById('project-name-display');
   projectName.innerText = name;
 }
 

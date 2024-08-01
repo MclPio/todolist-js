@@ -7,7 +7,7 @@ import { skeleton } from "../helpers/skeleton"
 import { todoNew } from "../views/todo/new"
 import { defaultProject } from "../helpers/defaultProject"
 import { todoEdit } from "../views/todo/edit";
-import { checkBox, checkMark } from "../helpers/checkBox";
+import { checkBox } from "../helpers/checkBox";
 import { checkStorage, setStorage } from "../helpers/expireCompleted";
 
 
@@ -25,7 +25,6 @@ function refresh(){
   projectEdit();
   todoEdit();
   checkBox();
-  checkMark();
   setStorage();
   checkStorage();
 }

@@ -14,18 +14,18 @@ function checkBox() {
   }
 }
 
-function checkMark(){
-  const checkButtons = document.getElementsByClassName('check-button')
-  for (let i = 0; i < checkButtons.length; i++) {
-    let target = checkButtons[i];
-    let todo = Storage.getTodo(target.dataset.index, Storage.getCurrentProject());
+// function checkMark(){
+//   // const checkButtons = document.getElementsByClassName('check-button')
+//   // for (let i = 0; i < checkButtons.length; i++) {
+//   //   let target = checkButtons[i];
+//   //   let todo = Storage.getTodo(target.dataset.index, Storage.getCurrentProject());
     
-    if (todo.complete) {
-      target.innerText = '✓'
-    } else {
-      target.innerText = ''
-    }
-  }
-}
+//   //   if (todo.complete) {
+//   //     target.innerText = '✓'
+//   //   } else {
+//   //     target.innerText = ''
+//   //   }
+//   // }
+// }
 
-export { checkBox, checkMark }
+export { checkBox }

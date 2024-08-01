@@ -35,17 +35,18 @@ project-button uses tailwind Violet colors
   --text-size-4xl: 3.05rem;
   --text-size-5xl: 3.81rem;
 
-  --color-1: white;
-  --color-2: white;
-  --color-3: white;
-  --color-4: white;
+  --color-1: #ffafcc;
+  --color-2: #7A002D;
+  --color-3: #fff1f2;
+  --color-4: #F7F7F7;
+  --color-5: #ffc3d8;
+
 }
 
 html {font-size: 16px;}
 
 body {
   font-family: 'Open Sans', sans-serif;
-  font-weight: false;
   line-height: 1.65;
 }
 
@@ -98,7 +99,7 @@ body,html {
 #container {
   display: grid;
   grid-template-columns: min(300px, 33%) 1fr;
-  background-color: #f5f3ff;
+  background-color: white;
   height: 100vh;
 }
 
@@ -109,7 +110,7 @@ body,html {
 
 #projects-section {
   overflow: auto;
-  background-color: #ede9fe;
+  background-color: var(--color-4);
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -134,7 +135,7 @@ body,html {
 }
 
 .project-container:hover {
-  background-color: #ddd6fe;
+  background-color: var(--color-1);
 }
 
 #new-project{
@@ -147,8 +148,8 @@ body,html {
 }
 
 #new-project:hover{
-  background-color: #ff3982;
-  color: #FFFFFF;
+  background-color: var(--color-2);
+  color: white;
   border-radius: 10px;
 }
 
@@ -161,7 +162,7 @@ body,html {
 }
 
 .project-option-button:hover {
-  background-color: #c7d2fe;
+  background-color: var(--color-5);
 }
 
 .project-option-button:active {
@@ -180,7 +181,7 @@ body,html {
 }
 
 .project-container.selected {
-  background-color: #FB6F92;
+  background-color: var(--color-1);
 }
 
 .material-symbols-outlined {
@@ -207,11 +208,13 @@ ul {
 
 .todo-li {
   cursor: pointer;
-  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .todo-li:hover {
-  background-color: #f0abfc;
+  background-color: var(--color-1);
 }
 
 #new-todo-form {
@@ -233,11 +236,12 @@ ul {
 
 .due-date {
   font-size: var(--text-size-sm);
+  height: 2rem;
 }
 
 .todo-check {
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 9fr;
   gap: 1em;
 }
 
@@ -252,6 +256,14 @@ ul {
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+}
+
+.check-mark-span {
+  opacity: 0;
+}
+
+.check-button:hover .check-mark-span{
+  opacity: 1;
 }
 
 .check-button.priority-1 {
@@ -293,15 +305,33 @@ dialog {
 }
 
 #new-todo-button:hover {
-  background-color: #ff3982;
+  background-color: var(--color-2);
   color: #FFFFFF;
 }
 
-#project-name {
+#project-name-display {
   font-size: var(--text-size-xl);
   font-weight: 500;
 }
 
 .project-header-container>p{
   font-weight: 500;
+}
+
+#todo-list {
+  width: min(80%, 1000px);
+}
+
+dialog>button {
+  background-color: var(--color-4);
+  border: 1px solid black;
+}
+
+dialog>button:hover {
+  background-color: var(--color-1);
+}
+
+::selection {
+  background-color: var(--color-2);
+  color: white;
 }

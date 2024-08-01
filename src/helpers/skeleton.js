@@ -45,7 +45,7 @@ function skeleton() {
 
   function todoSectionChildren() {
     const projectName = document.createElement('p');
-    projectName.id = 'project-name';
+    projectName.id = 'project-name-display';
 
     const newTodoButton = document.createElement('button');
     newTodoButton.innerText = 'New Todo';
