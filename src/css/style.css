@@ -2,6 +2,16 @@
 option button uses tailwind Indigo colors
 project-button uses tailwind Violet colors
 */
+@font-face {
+  font-family: 'SourceSans3-VariableFont_wght';
+  src: url('../fonts/SourceSans3-VariableFont_wght.ttf');
+  font-style: normal;
+}
+
+* {
+  font-family: 'SourceSans3-VariableFont_wght';
+}
+
 :root {
   --priority-3: #7dd3fc;
   --priority-3-border: #0c4a6e;
@@ -14,8 +24,67 @@ project-button uses tailwind Violet colors
 
   --priority-4: #d4d4d8;
   --priority-4-border: #18181b;
+
+  --text-size-xs: 0.64rem;
+  --text-size-sm: 0.8rem;
+  --text-size-md: 1rem;
+  --text-size-lg: 1.25rem;
+  --text-size-xl: 1.56rem;
+  --text-size-2xl: 1.95rem;
+  --text-size-3xl: 2.44rem;
+  --text-size-4xl: 3.05rem;
+  --text-size-5xl: 3.81rem;
 }
 
+html {font-size: 16px;}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: false;
+  line-height: 1.65;
+}
+
+p {
+  font-size: 1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: true;
+  line-height: 1.15;
+}
+
+h1,
+.text-size-h1 {
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 500;
+  margin-top: 0;
+  font-size: 3.05em;
+}
+
+h2,
+.text-size-h2 { font-size: 2.44em; }
+
+h3,
+.text-size-h3 { font-size: 1.95em; }
+
+h4,
+.text-size-h4 { font-size: 1.56em; }
+
+h5,
+.text-size-h5 { font-size: 1.25em; }
+
+.text-caption { font-size: 0.8em; }
+
+small,
+.text-small {
+  font-size: 0.64em;
+}
+              
 body,html {
   margin: 0;
   padding: 0;
@@ -137,7 +206,7 @@ ul {
 }
 
 .due-date {
-  font-size: small;
+  font-size: var(--text-size-sm);
   height: 2rem;
 }
 
@@ -178,4 +247,12 @@ ul {
 .check-button.priority-4 {
   background-color: var(--priority-4);
   border: 1px solid var(--priority-4-border);
+}
+
+dialog {
+  border: none !important;
+  border-radius: calc(5px * var(--ratio));
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 1.6rem;
+  max-width: 400px;
 }
