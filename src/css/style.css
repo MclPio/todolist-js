@@ -1,15 +1,16 @@
-/* 
+/*
 option button uses tailwind Indigo colors
 project-button uses tailwind Violet colors
 */
 @font-face {
-  font-family: 'SourceSans3-VariableFont_wght';
-  src: url('../fonts/SourceSans3-VariableFont_wght.ttf');
+  font-family: 'LeagueSpartan-VariableFont_wght';
+  src: url('../fonts/LeagueSpartan-VariableFont_wght.ttf');
   font-style: normal;
 }
 
 * {
-  font-family: 'SourceSans3-VariableFont_wght';
+  font-family: 'LeagueSpartan-VariableFont_wght';
+  font-stretch: 80%;
 }
 
 :root {
@@ -46,7 +47,7 @@ project-button uses tailwind Violet colors
 html {font-size: 16px;}
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'LeagueSpartan-VariableFont_wght', sans-serif;
   line-height: 1.65;
 }
 
@@ -59,14 +60,14 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'LeagueSpartan-VariableFont_wght', sans-serif;
   font-weight: true;
   line-height: 1.15;
 }
 
 h1,
 .text-size-h1 {
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'LeagueSpartan-VariableFont_wght', sans-serif;
   font-weight: 500;
   margin-top: 0;
   font-size: 3.05em;
@@ -90,7 +91,7 @@ small,
 .text-small {
   font-size: 0.64em;
 }
-              
+
 body,html {
   margin: 0;
   padding: 0;
@@ -121,7 +122,7 @@ body,html {
   text-align: left;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap; 
+  white-space: nowrap;
   width: 100%;
 }
 
@@ -144,7 +145,7 @@ body,html {
   background-color: transparent;
   font-size: var(--text-size-lg);
   display: flex;
-  
+
 }
 
 #new-project:hover{
