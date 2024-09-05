@@ -11,6 +11,8 @@ project-button uses tailwind Violet colors
 * {
   font-family: 'LeagueSpartan-VariableFont_wght';
   font-stretch: 80%;
+  background-color: black;
+  color: var(--color-1);
 }
 
 :root {
@@ -36,11 +38,12 @@ project-button uses tailwind Violet colors
   --text-size-4xl: 3.05rem;
   --text-size-5xl: 3.81rem;
 
-  --color-1: #ffafcc;
+  --color-1: #FF5A08;
   --color-2: #7A002D;
   --color-3: #fff1f2;
-  --color-4: #F7F7F7;
-  --color-5: #ffc3d8;
+  --color-4: #00ff00;
+  --color-5: #5290d3;
+  --background: black;
 
 }
 
@@ -107,11 +110,12 @@ body,html {
 #projects {
   display: flex;
   flex-direction: column;
+  gap: 1em;
 }
 
 #projects-section {
   overflow: auto;
-  background-color: var(--color-4);
+  background-color: var(--background);
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -124,6 +128,7 @@ body,html {
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
+  font-size: 2.44em
 }
 
 .project-button:hover {
@@ -136,7 +141,7 @@ body,html {
 }
 
 .project-container:hover {
-  background-color: var(--color-1);
+  /* border: 2px solid var(--color-1); */
 }
 
 #new-project{
@@ -155,34 +160,40 @@ body,html {
 }
 
 .project-option-button {
-  display: none;
   cursor: pointer;
   border: none;
-  background-color: transparent;
   border-radius: 5px;
+  color: var(--color-5)
 }
 
 .project-option-button:hover {
   background-color: var(--color-5);
 }
 
-.project-option-button:active {
-  background-color: #a5b4fc;
-}
-
 .project-container {
   display: flex;
 }
 
-.project-container:hover .project-option-button {
-  display: inline-block;
+.project-container::before {
+  content: '>';
+  visibility: hidden;
+  position: relative;
+  color: var(--color-4);
+  font-size: 2.44em;
+  font-weight: bold;
 }
+
+.project-container.selected::before {
+  visibility: visible;
+}
+
+
 .project-container.selected, .project-container:hover {
   border-radius: 5px;
 }
 
 .project-container.selected {
-  background-color: var(--color-1);
+
 }
 
 .material-symbols-outlined {
@@ -215,7 +226,7 @@ ul {
 }
 
 .todo-li:hover {
-  background-color: var(--color-1);
+  border: 1px solid var(--color-1);
 }
 
 #new-todo-form {
@@ -329,7 +340,7 @@ dialog>button {
 }
 
 dialog>button:hover {
-  background-color: var(--color-1);
+  /* background-color: var(--color-1); */
 }
 
 ::selection {

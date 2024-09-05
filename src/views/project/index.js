@@ -15,11 +15,11 @@ function projectIndex(){
     const projectButton = document.createElement('button');
     projectButton.classList = 'project-button';
     projectButton.setAttribute('data-id', `${projectsArray[i].id}`);
-    projectButton.innerHTML = projectsArray[i].name;
+    projectButton.innerHTML = projectsArray[i].name.toUpperCase();
 
     const projectOptionsButton = document.createElement('button');
     projectOptionsButton.classList = 'project-option-button';
-    projectOptionsButton.innerHTML = `<span class="material-symbols-outlined">more_horiz</span>`;
+    projectOptionsButton.innerHTML = `?`;
 
     if (projectsArray[i].id === 0) {
       projectContainer.append(projectButton)

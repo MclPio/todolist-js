@@ -24,10 +24,10 @@ function skeleton() {
     function initProjectHeaderContainer() {
       const projectHeaderContainer = document.createElement('div');
       projectHeaderContainer.classList = 'project-header-container';
-    
-      const myProjectsHeader = document.createElement('p');
-      myProjectsHeader.innerText = 'My Projects';
-    
+
+      const myProjectsHeader = document.createElement('h1');
+      myProjectsHeader.innerText = 'PROJECTS';
+
       const addProjectButton = document.createElement('button');
       addProjectButton.id = 'new-project';
       addProjectButton.textContent = 'New Project';
@@ -50,7 +50,7 @@ function skeleton() {
     const newTodoButton = document.createElement('button');
     newTodoButton.innerText = 'New Todo';
     newTodoButton.id = 'new-todo-button';
-  
+
     const todoList = document.createElement('div');
     todoList.id = 'todo-list';
 
