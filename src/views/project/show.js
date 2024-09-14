@@ -35,7 +35,7 @@ function projectToDOM(project) {
     check.classList = "check-button";
     let span = document.createElement("span");
     span.classList = "check-mark-span";
-    span.innerText = "✓";
+    span.innerText = "X";
     check.append(span);
     todoLi.append(dueDate);
     todoCheck.append(check, todoLi);

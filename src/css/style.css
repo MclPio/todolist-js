@@ -275,7 +275,6 @@ ul {
 .check-button {
   height: 1.5rem;
   width: 1.5rem;
-  border-radius: 50%;
 	background: none;
 	color: inherit;
 	border: none;
@@ -285,8 +284,10 @@ ul {
 	outline: inherit;
 }
 
+
 .check-mark-span {
   opacity: 0;
+  background-color: transparent;
 }
 
 .check-button:hover .check-mark-span{
@@ -314,7 +315,7 @@ ul {
 }
 
 dialog {
-  border: none !important;
+  border: 2px solid var(--color-4);
   border-radius: calc(5px * var(--ratio));
   box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   padding: 1.6rem;
