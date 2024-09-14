@@ -65,7 +65,6 @@ h4,
 h5 {
   font-family: 'LeagueSpartan-VariableFont_wght', sans-serif;
   font-weight: true;
-  line-height: 1.15;
 }
 
 h1,
@@ -74,6 +73,7 @@ h1,
   font-weight: 500;
   margin-top: 0;
   font-size: 3.05em;
+  margin-bottom: 0;
 }
 
 h2,
@@ -118,6 +118,9 @@ body,html {
   background-color: var(--background);
   padding-left: 1rem;
   padding-right: 1rem;
+  display: grid;
+  grid-template-rows: min-content;
+  justify-content: center;
 }
 
 .project-button {
@@ -148,15 +151,28 @@ body,html {
   cursor: pointer;
   border: none;
   background-color: transparent;
-  font-size: var(--text-size-lg);
-  display: flex;
-
+  font-size: var(--text-size-2xl);
 }
 
-#new-project:hover{
-  background-color: var(--color-2);
-  color: white;
-  border-radius: 10px;
+#new-project:hover > span{
+  text-decoration: underline;
+}
+
+/* Blinking cursor effect */
+.project-container.selected::before {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 .project-option-button {
@@ -178,7 +194,7 @@ body,html {
   content: '>';
   visibility: hidden;
   position: relative;
-  color: var(--color-4);
+  color: var(--color-1);
   font-size: 2.44em;
   font-weight: bold;
 }
@@ -202,8 +218,7 @@ body,html {
 
 .project-header-container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: baseline;
 }
 
 #todo-section {
