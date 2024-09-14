@@ -3,26 +3,27 @@ import { Storage } from "../../modules/storage";
 /**
  * Updates the DOM projectsSection element with project list retrieved from storage.
  */
-function projectIndex(){
+function projectIndex() {
   let projectsArray = Storage.retrieve();
-  const projectsSection = document.getElementById('projects');
-  projectsSection.innerHTML = '';
+  const projectsSection = document.getElementById("projects");
+  projectsSection.innerHTML = "";
 
-  for (let i = 0; i < projectsArray.length; i++){
-    const projectContainer = document.createElement('div');
-    projectContainer.classList = 'project-container'
+  for (let i = 0; i < projectsArray.length; i++) {
+    const projectContainer = document.createElement("div");
+    projectContainer.classList = "project-container";
 
-    const projectButton = document.createElement('button');
-    projectButton.classList = 'project-button';
-    projectButton.setAttribute('data-id', `${projectsArray[i].id}`);
+    const projectButton = document.createElement("button");
+    projectButton.classList = "project-button";
+    projectButton.setAttribute("data-id", `${projectsArray[i].id}`);
     projectButton.innerHTML = projectsArray[i].name.toUpperCase();
 
-    const projectOptionsButton = document.createElement('button');
-    projectOptionsButton.classList = 'project-option-button';
-    projectOptionsButton.innerHTML = `?`;
+    const projectOptionsButton = document.createElement("button");
+    projectOptionsButton.classList = "project-option-button";
+    projectOptionsButton.innerHTML =
+      '<span class="material-symbols-outlined">edit</span>';
 
     if (projectsArray[i].id === 0) {
-      projectContainer.append(projectButton)
+      projectContainer.append(projectButton);
     } else {
       projectContainer.append(projectButton, projectOptionsButton);
     }

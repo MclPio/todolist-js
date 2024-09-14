@@ -10,7 +10,7 @@ project-button uses tailwind Violet colors
 
 * {
   font-family: 'LeagueSpartan-VariableFont_wght';
-  font-stretch: 80%;
+  /* font-stretch: 50%; */
   background-color: black;
   color: var(--color-1);
 }
@@ -131,7 +131,7 @@ body,html {
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
-  font-size: 2.44em
+  font-size: var(--text-size-3xl)
 }
 
 .project-button:hover {
@@ -179,11 +179,11 @@ body,html {
   cursor: pointer;
   border: none;
   border-radius: 5px;
-  color: var(--color-5)
+  font-size: var(--text-size-2xl);
 }
 
-.project-option-button:hover {
-  background-color: var(--color-5);
+.project-option-button>span:hover {
+  text-decoration: underline;
 }
 
 .project-container {
@@ -326,18 +326,16 @@ dialog {
   border: none;
   background-color: transparent;
   font-size: var(--text-size-md);
-  align-self: stretch;
   margin-left: 2rem;
   margin-right: 2rem;
 }
 
 #new-todo-button:hover {
-  background-color: var(--color-2);
-  color: #FFFFFF;
+  text-decoration: underline;
 }
 
 #project-name-display {
-  font-size: var(--text-size-xl);
+  font-size: var(--text-size-3xl);
   font-weight: 500;
 }
 
