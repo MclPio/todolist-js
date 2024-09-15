@@ -51,16 +51,11 @@ project-button uses tailwind Violet colors
 
 }
 
-html {font-size: 16px;}
-
 body {
   font-family: 'LeagueSpartan-VariableFont_wght', sans-serif;
   line-height: 1.65;
 }
 
-p {
-  font-size: 1em;
-}
 
 h1,
 h2,
@@ -76,27 +71,8 @@ h1,
   font-family: 'LeagueSpartan-VariableFont_wght', sans-serif;
   font-weight: 500;
   margin-top: 0;
-  font-size: 3.05em;
+  font-size: var(--text-size-lg);
   margin-bottom: 0;
-}
-
-h2,
-.text-size-h2 { font-size: 2.44em; }
-
-h3,
-.text-size-h3 { font-size: 1.95em; }
-
-h4,
-.text-size-h4 { font-size: 1.56em; }
-
-h5,
-.text-size-h5 { font-size: 1.25em; }
-
-.text-caption { font-size: 0.8em; }
-
-small,
-.text-small {
-  font-size: 0.64em;
 }
 
 body,html {
@@ -115,6 +91,7 @@ body,html {
   display: flex;
   flex-direction: column;
   gap: 1em;
+  overflow: hidden;
 }
 
 #projects-section {
@@ -135,7 +112,7 @@ body,html {
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
-  font-size: var(--text-size-3xl)
+  font-size: var(--text-size-md)
 }
 
 .project-button:hover {
@@ -147,15 +124,12 @@ body,html {
   font-weight: bold;
 }
 
-.project-container:hover {
-  /* border: 2px solid var(--color-1); */
-}
 
 #new-project{
   cursor: pointer;
   border: none;
   background-color: transparent;
-  font-size: var(--text-size-2xl);
+  font-size: var(--text-size-md);
 }
 
 #new-project:hover > span{
@@ -183,7 +157,7 @@ body,html {
   cursor: pointer;
   border: none;
   border-radius: 5px;
-  font-size: var(--text-size-2xl);
+  font-size: var(--text-size-md);
 }
 
 .project-option-button>span:hover {
@@ -197,9 +171,8 @@ body,html {
 .project-container::before {
   content: '>';
   visibility: hidden;
-  position: relative;
   color: var(--color-1);
-  font-size: 2.44em;
+  font-size: var(--text-size-md);
   font-weight: bold;
 }
 
@@ -210,14 +183,6 @@ body,html {
 
 .project-container.selected, .project-container:hover {
   border-radius: 5px;
-}
-
-.project-container.selected {
-
-}
-
-.material-symbols-outlined {
-  font-size: inherit !important;
 }
 
 .project-header-container {
@@ -265,9 +230,10 @@ ul {
   display: flex;
 }
 
+/* this may need to change as it takes a lot of space*/
 .due-date {
   font-size: var(--text-size-sm);
-  height: 2rem;
+  height: 1rem;
 }
 
 .todo-check {
@@ -319,16 +285,16 @@ ul {
 }
 
 dialog {
-  border: 5px solid var(--color-1);
+  border: 2px solid var(--color-1);
   border-radius: calc(5px * var(--ratio));
   box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   padding: 1.6rem;
   max-width: 400px;
-  font-size: var(--text-size-2xl);
+  font-size: var(--text-size-md);
 }
 
 #project-options > button {
-  font-size: var(--text-size-2xl);
+  font-size: var(--text-size-md);
 }
 #new-todo-button {
   cursor: pointer;
@@ -344,7 +310,7 @@ dialog {
 }
 
 #project-name-display {
-  font-size: var(--text-size-3xl);
+  font-size: var(--text-size-md);
   font-weight: 500;
 }
 
@@ -366,12 +332,12 @@ dialog>button {
 }
 
 .dialog-content > button {
-  font-size: var(--text-size-2xl);
+  font-size: var(--text-size-md);
   border: 1px solid var(--color-1);
 }
 
 .dialog-content > input,select,textarea {
-  font-size: var(--text-size-2xl);
+  font-size: var(--text-size-md);
   border: 1px solid var(--color-1);
 }
 
@@ -386,7 +352,8 @@ dialog>button {
 }
 
 .dialog-content > .button-group>button, #todo-options>button {
-  font-size: var(--text-size-2xl);
+  font-size: var(--text-size-md);
+  border: 1px solid var(--color-1);
 }
 
 .button-group>button:hover, #todo-options>button:hover {
