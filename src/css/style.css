@@ -16,17 +16,21 @@ project-button uses tailwind Violet colors
 }
 
 :root {
-  --priority-3: #7dd3fc;
-  --priority-3-border: #0c4a6e;
-
-  --priority-2: #6ee7b7;
-  --priority-2-border: #064e3b;
-
-  --priority-1: #fda4af;
-  --priority-1-border: #881337;
-
-  --priority-4: #d4d4d8;
-  --priority-4-border: #18181b;
+  /* Priority 1 (Highest) - Bright Red (Emergency) */
+    --priority-1: #FF0000;
+    --priority-1-border: #8B0000;
+  
+    /* Priority 2 - Neon Orange (Warning) */
+    --priority-2: #FF6600;
+    --priority-2-border: #CC5200;
+  
+    /* Priority 3 - Bright Cyan (Alert) */
+    --priority-3: #00FFFF;
+    --priority-3-border: #008B8B;
+  
+    /* Priority 4 (Lowest) - Lime Green (Normal) */
+    --priority-4: #32CD32;
+    --priority-4-border: #228B22;
 
   --text-size-xs: 0.64rem;
   --text-size-sm: 0.8rem;
@@ -296,32 +300,36 @@ ul {
 
 .check-button.priority-1 {
   background-color: var(--priority-1);
-  border: 1px solid var(--priority-1-border);
+  border-color: var(--priority-1-border);
 }
 
 .check-button.priority-2 {
   background-color: var(--priority-2);
-  border: 1px solid var(--priority-2-border);
+  border-color: var(--priority-2-border);
 }
 
 .check-button.priority-3 {
   background-color: var(--priority-3);
-  border: 1px solid var(--priority-3-border);
+  border-color: var(--priority-3-border);
 }
 
 .check-button.priority-4 {
   background-color: var(--priority-4);
-  border: 1px solid var(--priority-4-border);
+  border-color: var(--priority-4-border);
 }
 
 dialog {
-  border: 2px solid var(--color-4);
+  border: 5px solid var(--color-1);
   border-radius: calc(5px * var(--ratio));
   box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   padding: 1.6rem;
   max-width: 400px;
+  font-size: var(--text-size-2xl);
 }
 
+#project-options > button {
+  font-size: var(--text-size-2xl);
+}
 #new-todo-button {
   cursor: pointer;
   border: none;
@@ -349,15 +357,39 @@ dialog {
 }
 
 dialog>button {
-  background-color: var(--color-4);
-  border: 1px solid black;
+  /* background-color: var(--color-4); */
 }
 
-dialog>button:hover {
-  /* background-color: var(--color-1); */
+.dialog-content {
+  display: grid;
+  gap: 5px;
+}
+
+.dialog-content > button {
+  font-size: var(--text-size-2xl);
+  border: 1px solid var(--color-1);
+}
+
+.dialog-content > input,select,textarea {
+  font-size: var(--text-size-2xl);
+  border: 1px solid var(--color-1);
+}
+
+.dialog-content>button:hover {
+  background-color: var(--color-5);
+  color: var(--color-4);
 }
 
 ::selection {
   background-color: var(--color-2);
   color: white;
+}
+
+.dialog-content > .button-group>button, #todo-options>button {
+  font-size: var(--text-size-2xl);
+}
+
+.button-group>button:hover, #todo-options>button:hover {
+  background-color: var(--color-5);
+  color: var(--color-4);
 }

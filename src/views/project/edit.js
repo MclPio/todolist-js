@@ -13,7 +13,7 @@ function projectEdit() {
 
   const cancel = (function () {
     let cancelButton = document.createElement("button");
-    cancelButton.innerText = "Cancel";
+    cancelButton.innerText = "CANCEL";
     cancelButton.id = "cancel-project-update";
     return cancelButton;
   })();
@@ -24,14 +24,14 @@ function projectEdit() {
 
   const submitButton = (function () {
     let submitButton = document.createElement("button");
-    submitButton.innerText = "Submit";
+    submitButton.innerText = "SUBMIT";
     submitButton.id = "submit-project-update";
     return submitButton;
   })();
 
   const destroyButton = (function () {
     let destroyButton = document.createElement("button");
-    destroyButton.innerText = "Delete Project";
+    destroyButton.innerText = "DESTROY";
     destroyButton.id = "delete-project";
     return destroyButton;
   })();
@@ -44,7 +44,9 @@ function projectEdit() {
   projectNameInput.id = "edited-project-name";
   projectNameInput.type = "text";
 
-  dialog.append(
+  const dialogContent = document.createElement("div");
+  dialogContent.classList = "dialog-content";
+  dialogContent.append(
     modalTitle,
     projectNameLabel,
     projectNameInput,
@@ -52,6 +54,7 @@ function projectEdit() {
     cancel,
     destroyButton
   );
+  dialog.append(dialogContent);
   container.append(dialog);
 
   // modal show click event
